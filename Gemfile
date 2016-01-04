@@ -19,7 +19,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', "~> 4.0"
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
 end
