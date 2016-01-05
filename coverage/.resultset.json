@@ -1,0 +1,18 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/ezrashim/challenges/park_relm/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/ezrashim/challenges/park_relm/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1451949873
+  }
+}
