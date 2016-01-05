@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'coveralls', require: false
+gem "devise"
 
 
 group :development, :test do
@@ -19,7 +20,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', "~> 4.0"
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
 end
@@ -29,6 +30,6 @@ group :development do
   gem 'spring'
 end
 
-group :test do
-  gem 'coveralls', require: false
-end
+# group :test do
+#   gem 'coveralls', require: false
+# end
