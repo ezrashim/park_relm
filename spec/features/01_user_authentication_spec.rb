@@ -3,7 +3,7 @@ require 'launchy'
 
 feature 'authenticates a user' do
   before do
-    user_1 = create(:user)
+    user = create(:user)
     visit '/'
   end
 
@@ -24,25 +24,12 @@ feature 'authenticates a user' do
   end
 
   scenario 'user signs in' do
-    click_link('Sign In')
-
-    fill_in('Username', :with => user_1.username)
-    fill_in('Password', :with => user_1.password)
-
-    click_link('Sign In')
-
+    sign_in_as(user)
     expect(page).to have_content("You have successfully signed in.")
   end
 
   scenario 'user signs out' do
-
-    click_link('Sign In')
-
-    fill_in('Username', :with => user_1.username)
-    fill_in('Password', :with => user_1.password)
-
-    click_link('Sign In')
-    expect(page).to have_content("You have successfully signed in.")
+    sign_in_as(user)
 
     click_link('Sign Out')
     expect(page).to have_content("You have successfully signed out.")
@@ -50,13 +37,7 @@ feature 'authenticates a user' do
 
   scenario 'user updates information' do
 
-    click_link('Sign In')
-
-    fill_in('Username', :with => user_1.username)
-    fill_in('Password', :with => user_1.password)
-
-    click_link('Sign In')
-    expect(page).to have_content("You have successfully signed in.")
+    sign_in_as(user)
 
     click_link('Edit Profile')
 
@@ -68,14 +49,7 @@ feature 'authenticates a user' do
   end
 
   scenario 'user deletes information' do
-
-    click_link('Sign In')
-
-    fill_in('Username', :with => user_1.username)
-    fill_in('Password', :with => user_1.password)
-
-    click_link('Sign In')
-    expect(page).to have_content("You have successfully signed in.")
+    sign_in_as(user)
 
     click_link('Delete Account')
     expect(page).to have_content("Your account has been deleted.")
