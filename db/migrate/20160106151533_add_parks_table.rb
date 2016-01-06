@@ -3,7 +3,7 @@ class AddParksTable < ActiveRecord::Migration
     create_table :parks do |t|
       t.string :title, null: false
       t.string :location, null: false
-      t.float :rating, null: false
+      t.float :rating
 
       t.boolean :bathroom
       t.boolean :picnic
