@@ -6,10 +6,10 @@ feature 'sign out', %{
   I want to sign out
   So that my identity is forgotten on the machine i am using
   } do
-    # ACCEPTANCE CRITERIA
-    # * if i am signed in, i have an option to sign out
-    # * when i am opted to sign out, i get a confirmation that my identity
-    # * has beed forgotten on the machine i am using
+  # ACCEPTANCE CRITERIA
+  # * if i am signed in, i have an option to sign out
+  # * when i am opted to sign out, i get a confirmation that my identity
+  # * has beed forgotten on the machine i am using
 
   scenario 'authenticated user signs out' do
     user = create(:user)
