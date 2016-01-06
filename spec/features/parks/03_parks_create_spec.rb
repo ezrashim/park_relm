@@ -15,9 +15,8 @@ feature "authenticated users can view parks" do
     fill_in("Location", with: "NYC")
 
     click_button("Add Park")
-    
+
     expect(page).to have_content("Central Park")
     expect(page).to have_content("NYC")
-
   end
 end
