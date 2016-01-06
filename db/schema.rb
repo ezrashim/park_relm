@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160106151533) do
   create_table "parks", force: :cascade do |t|
     t.string   "title",      null: false
     t.string   "location",   null: false
-    t.float    "rating",     null: false
+    t.float    "rating"
     t.boolean  "bathroom"
     t.boolean  "picnic"
     t.boolean  "pets"
