@@ -35,7 +35,6 @@ feature 'sign in', %{
   end
 
   scenario 'an existing email with the wrong password is denied access' do
-    user = create(:user)
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'random'
@@ -50,7 +49,6 @@ feature 'sign in', %{
     visit root_path
     sign_in_as(user)
 
-    save_and_open_page
     expect(page).to_not have_content('Sign In')
   end
 end
