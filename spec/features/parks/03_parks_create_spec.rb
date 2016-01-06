@@ -12,8 +12,8 @@ feature "authenticated users can view parks" do
     # sign_in_as(user)
     click_link("New Park")
 
-    fill_in("Title" , with: "Central Park")
-    fill_in("Location" , with: "NYC")
+    fill_in("Title", with: "Central Park")
+    fill_in("Location", with: "NYC")
 
     click_button("Add Park")
 

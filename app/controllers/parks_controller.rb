@@ -24,6 +24,14 @@ class ParksController < ApplicationController
   end
 
   def park_params
-    params.require(:park).permit(:title, :location, :rating, :bathroom, :picnic, :pets, :basketball, :baseball)
+    params.require(:park).permit(
+    :title,
+    :location,
+    :rating,
+    :bathroom,
+    :picnic,
+    :pets,
+    :basketball,
+    :baseball)
   end
 end
