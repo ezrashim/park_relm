@@ -1,0 +1,14 @@
+<h1>Parks</h1>
+
+<ul>
+    <% @parks.each do |park| %>
+  <li>
+      <%= link_to park.title, park_path(park) %>
+      <%= park.location %>
+      <%= park.rating %>
+  </li>
+    <% end %>
+</ul>
+
+
+<%= link_to "Add New Park", new_park_path %>
