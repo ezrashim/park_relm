@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'launchy'
+require 'pry'
 
 feature 'sign up', %{
   As a prospective user
@@ -13,7 +14,8 @@ feature 'sign up', %{
     # * If I specify valid information, I register my account and am authenticated
 
   scenario 'specifying valid and required information' do
-    visit new_user_registration_path
+    visit root_path
+    click_link 'Sign Up'
     fill_in('First Name', with: 'John')
     fill_in('Last Name', with: 'Doe')
     fill_in('Email', with: 'johndoe@123.com')
@@ -21,7 +23,6 @@ feature 'sign up', %{
     fill_in('Confirm Password', with: 'Seekrit123')
     fill_in('Profile URL', with: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
     click_button('Sign Up')
-    save_and_open_page
 
     expect(page).to have_content("Welcome! Thank you for signing up.")
     expect(page).to have_content("Sign Out")
@@ -40,8 +41,8 @@ feature 'sign up', %{
     visit root_path
     click_link 'Sign Up'
 
-    fill_in 'Enter Password', with: 'Seekrit'
-    fill_in 'Confirm Password', with: 'Seekrit'
+    fill_in 'Enter Password', with: '123Seekrit'
+    fill_in 'Confirm Password', with: '756Seekrit'
 
     click_button 'Sign Up'
 
