@@ -7,6 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <section class='top-bar-section'>
+    <ul class='right'>
+      <% if current_user %>
+        <li> <%= link_to 'Sign Out','#' %></li>
+      <% end %>
+    </ul>
+  </section>
+
+
+  <% flash.each do |key, value| %>
+    <div>
+      <%= value %>
+    </div>
+  <% end %>
 
 <%= yield %>
 

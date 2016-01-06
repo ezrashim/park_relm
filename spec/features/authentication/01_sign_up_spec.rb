@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'launchy'
 
-feature 'sign up', %Q{
+feature 'sign up', %{
   As a prospective user
   I want to create an account
   So that I can post items and review them
@@ -13,17 +13,17 @@ feature 'sign up', %Q{
     # * If I specify valid information, I register my account and am authenticated
 
   scenario 'specifying valid and required information' do
-    visit root_path
-    click_link 'Sign Up'
+    visit new_user_registration_path
     fill_in('First Name', with: 'John')
     fill_in('Last Name', with: 'Doe')
     fill_in('Email', with: 'johndoe@123.com')
-    fill_in('Enter Password', with: 'Seekrit')
-    fill_in('Confirm Password', with: 'Seekrit')
-    fill_in('Profile Picture', with: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+    fill_in('Enter Password', with: 'Seekrit123')
+    fill_in('Confirm Password', with: 'Seekrit123')
+    fill_in('Profile URL', with: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
     click_button('Sign Up')
+    save_and_open_page
 
-    expect(page).to have_content("You have successfully signed in.")
+    expect(page).to have_content("Welcome! Thank you for signing up.")
     expect(page).to have_content("Sign Out")
   end
 
