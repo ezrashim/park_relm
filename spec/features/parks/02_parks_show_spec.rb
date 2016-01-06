@@ -4,7 +4,6 @@ require "rails_helper"
 # I want to view a list of items
 # So that I can pick items to review
 
-
 feature "authenticated users can view parks" do
   scenario "visitor signs in and views parks on index page" do
     parks = FactoryGirl.create_list(:park, 3)
@@ -21,13 +20,9 @@ feature "authenticated users can view parks" do
     end
   end
 
-
-
   let(:park){ Park.create!(title: "Commons", location: "Boston", rating: 10, bathroom: true, picnic: true, pets: true, basketball: true, baseball: true)}
 
-
   scenario "visitor signs in and views parks on index page" do
-
 
     visit root_path
 
@@ -42,6 +37,5 @@ feature "authenticated users can view parks" do
     expect(page).to have_content("Pets allowed")
     expect(page).to have_content("basketball courts available")
     expect(page).to have_content("Baseball field available")
-
   end
 end
