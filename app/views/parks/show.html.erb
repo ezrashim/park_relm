@@ -1,0 +1,31 @@
+<h1><%= @park.title%></h1>
+  <%= @park.location %>
+  <%= @park.rating %>
+
+<ul>
+  <% if @park.bathroom%>
+    <li>
+      Bathrooms available
+    </li>
+    <%end%>
+  <% if @park.picnic%>
+    <li>
+      Picnic facilities available
+    </li>
+    <%end%>
+  <% if @park.pets%>
+    <li>
+      Pets allowed
+    </li>
+  <%end%>
+  <% if @park.basketball%>
+    <li>
+      basketball courts available
+    </li>
+  <%end%>
+  <% if @park.baseball%>
+    <li>
+      Baseball field available
+    </li>
+  <%end%>
+</ul>
