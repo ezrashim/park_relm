@@ -20,7 +20,9 @@ feature "authenticated users can view parks" do
     end
   end
 
-  let(:park){ Park.create!(title: "Commons", location: "Boston", rating: 10, bathroom: true, picnic: true, pets: true, basketball: true, baseball: true)}
+  let(:park) { Park.create!(title: "Commons", location: "Boston", rating: 10,
+              bathroom: true, picnic: true, pets: true, basketball: true,
+              baseball: true) }
 
   scenario "visitor signs in and views parks on index page" do
 
