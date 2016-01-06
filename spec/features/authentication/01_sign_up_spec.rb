@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'launchy'
 
-feature 'sign up', %Q{
+feature 'sign up', %{
   As a prospective user
   I want to create an account
   So that I can post items and review them

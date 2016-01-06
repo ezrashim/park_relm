@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'launchy'
 
-feature 'sign in', %Q{
+feature 'sign in', %{
   As an unauthenticated user
   I want to sign in
   So that I can post items and review them
