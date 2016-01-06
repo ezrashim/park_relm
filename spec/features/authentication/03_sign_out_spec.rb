@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'launchy'
 
 feature 'sign out', %{
   As an unauthenticated user
