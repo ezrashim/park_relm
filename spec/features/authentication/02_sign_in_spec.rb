@@ -24,7 +24,6 @@ feature 'sign in', %{
   end
 
   scenario 'a nonexistent email and password is supplied' do
-    user = create(:user)
     visit new_user_session_path
     fill_in 'Email', with: 'nonexistent'
     fill_in 'Password', with: 'nonexistent'
@@ -35,6 +34,7 @@ feature 'sign in', %{
   end
 
   scenario 'an existing email with the wrong password is denied access' do
+    user = create(:user)
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'random'
