@@ -9,15 +9,13 @@ feature "authenticated users can view parks" do
 
     visit root_path
 
-    # sign_in_as(user)
     click_link("New Park")
 
     fill_in("Title", with: "Central Park")
     fill_in("Location", with: "NYC")
 
     click_button("Add Park")
-
-    # redirected to index
+    
     expect(page).to have_content("Central Park")
     expect(page).to have_content("NYC")
 
