@@ -1,6 +1,5 @@
 require 'rails_helper'
 require 'launchy'
-require 'pry'
 
 feature 'sign up', %{
   As a prospective user
