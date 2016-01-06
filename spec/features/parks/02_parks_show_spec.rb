@@ -33,9 +33,7 @@ feature "authenticated users can view parks" do
 
     expect(page).to have_content "Parks"
 
-# binding.pry
     visit park_path(park)
-    # binding.pry
     expect(page).to have_content(park.title)
     expect(page).to have_content(park.location)
     expect(page).to have_content(park.rating)
