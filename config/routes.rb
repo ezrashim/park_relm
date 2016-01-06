@@ -55,6 +55,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root "park#index"
+  root "parks#index"
   resources :parks
 end
