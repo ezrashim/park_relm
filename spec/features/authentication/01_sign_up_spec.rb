@@ -18,12 +18,12 @@ feature 'sign up', %{
     fill_in('First Name', with: 'John')
     fill_in('Last Name', with: 'Doe')
     fill_in('Email', with: 'johndoe@123.com')
-    fill_in('Enter Password', with: 'Seekrit')
-    fill_in('Confirm Password', with: 'Seekrit')
-    fill_in('Profile Picture', with: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
+    fill_in('Enter Password', with: 'Seekrit123')
+    fill_in('Confirm Password', with: 'Seekrit123')
+    fill_in('Profile URL', with: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
     click_button('Sign Up')
 
-    expect(page).to have_content("You have successfully signed in.")
+    expect(page).to have_content("Welcome! Thank you for signing up.")
     expect(page).to have_content("Sign Out")
   end
 
@@ -40,8 +40,8 @@ feature 'sign up', %{
     visit root_path
     click_link 'Sign Up'
 
-    fill_in 'Enter Password', with: 'Seekrit'
-    fill_in 'Confirm Password', with: 'Seekrit'
+    fill_in 'Enter Password', with: '123Seekrit'
+    fill_in 'Confirm Password', with: '756Seekrit'
 
     click_button 'Sign Up'
 
