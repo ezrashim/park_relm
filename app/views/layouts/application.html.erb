@@ -1,33 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>ParkRelm</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <section class='top-bar-section'>
-    <ul class='right'>
-      <% if current_user %>
-        <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <li> <%= link_to "#{current_user.email}", user_path(current_user) %></li>
-      <% else %>
-          <li><%= link_to 'Sign Up', new_user_registration_path  %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-      <% end %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    </ul>
-  </section>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-  <% flash.each do |key, value| %>
-    <div>
-      <%= value %>
-    </div>
-  <% end %>
+  <body>
+    <section class='top-bar-section'>
+      <ul class='right'>
+        <% if current_user %>
+          <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li> <%= link_to "#{current_user.email}", user_path(current_user) %></li>
+        <% else %>
+            <li><%= link_to 'Sign Up', new_user_registration_path  %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <% end %>
 
-<%= yield %>
+      </ul>
+    </section>
 
-</body>
+    <% flash.each do |key, value| %>
+      <div>
+        <%= value %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
 </html>
