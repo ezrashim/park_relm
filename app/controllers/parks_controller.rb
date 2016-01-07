@@ -39,6 +39,18 @@ class ParksController < ApplicationController
     end
   end
 
+  def destroy
+    @park = Park.find(params[:id])
+    @park.destroy
+    if @park.persisted?
+      flash[:notice] = "You failed to delete park!"
+      render :show
+    else
+      flash[:notice] = "You have deleted park successfully!"
+      redirect_to root_path
+    end
+  end
+
   private
 
   def park_params
