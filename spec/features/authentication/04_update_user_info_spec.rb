@@ -16,7 +16,7 @@ feature 'update user information', %{
     visit root_path
     sign_in_as(user)
 
-    click_link user.email
+    click_link "My profile"
     click_link 'Update'
 
     fill_in('First Name', with: 'Barbara')
