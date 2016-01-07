@@ -15,22 +15,25 @@ feature 'update user information', %{
     user = create(:user)
     visit root_path
     sign_in_as(user)
+    # binding.pry
     click_link user.email
 
     expect(page).to have_content(user.first_name)
     expect(page).to have_content(user.last_name)
     expect(page).to have_content(user.email)
     expect(page).to have_content(user.avatar_url)
-    click_button 'Update'
+    click_link 'Update'
 
-    fill_in('First Name', with: 'John')
+    fill_in('First Name', with: 'Barbara')
     fill_in('Last Name', with: 'Lee')
+    fill_in('Email', with: 'barbaralee3@yahoo.com')
     click_button 'Update'
+    # binding.pry
 
-    expect(page).to have_content('John')
-    expect(page).to have_content('Lee')
+    expect(page).to have_content('Your account has been updated successfully.')
 
-    expect(page).to_not have_content(user.firt_name)
-    expect(page).to_not have_content(user.last_name)
+    save_and_open_page
+    expect(page).to_not have_content(user.email)
+    expect(page).to have_content("barbaralee3@yahoo.com")
   end
 end
