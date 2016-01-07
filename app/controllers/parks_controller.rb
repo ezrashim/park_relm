@@ -39,7 +39,7 @@ class ParksController < ApplicationController
     end
   end
 
-private
+  private
 
   def park_params
     params.require(:park).permit(
