@@ -40,6 +40,7 @@ class ParksController < ApplicationController
   end
 
 private
+
   def park_params
     params.require(:park).permit(
       :title,
@@ -49,7 +50,6 @@ private
       :picnic,
       :pets,
       :basketball,
-      :baseball
-      )
+      :baseball)
   end
 end
