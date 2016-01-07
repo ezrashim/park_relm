@@ -23,6 +23,23 @@ class ParksController < ApplicationController
     end
   end
 
+  def edit
+    @park = Park.find(params[:id])
+  end
+
+  def update
+    @park = Park.find(params[:id])
+    @park.update(park_params)
+    if @park.save
+      flash[:notice] = "You have successfully updated your question!"
+      redirect_to @park
+    else
+      flash.now[:notice] = "Invalid input."
+      render 'edit'
+    end
+  end
+
+private
   def park_params
     params.require(:park).permit(
       :title,
@@ -32,6 +49,7 @@ class ParksController < ApplicationController
       :picnic,
       :pets,
       :basketball,
-      :baseball)
+      :baseball
+      )
   end
 end
