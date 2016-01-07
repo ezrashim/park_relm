@@ -5,38 +5,5 @@
 <%end%>
 
 <div>
-<%= form_for @park do |f| %>
-  <ul>
-    <%=f.label :title, "Title"%>
-    <%= f.text_field :title %>
-  </ul>
-  <ul>
-    <%=f.label :location, "Location"%>
-    <%= f.text_field :location %>
-  </ul>
-  <ul>
-    <%=f.label :bathroom, "Bathroom?"%>
-    <%= f.check_box :bathroom %>
-  </ul>
-  <ul>
-    <%=f.label :picnic, "Picnic Area?"%>
-    <%= f.check_box :picnic %>
-  </ul>
-  <ul>
-    <%=f.label :pets, "Pet Friendly?"%>
-    <%= f.check_box :pets %>
-  </ul>
-  <ul>
-    <%=f.label :basketball, "Basketball Courts?"%>
-    <%= f.check_box :basketball %>
-  </ul>
-  <ul>
-    <%=f.label :baseball, "Baseball Fields?"%>
-    <%= f.check_box :baseball %>
-  </ul>
-
-  <ul>
-    <%= f.submit "Update Park" %>
-  </ul>
-<% end %>
+  <%= render "layouts/park_form" %>
 </div>

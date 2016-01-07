@@ -7,7 +7,6 @@ require "rails_helper"
 feature "authenticated users can edit park information" do
   scenario "visitor signs in and views parks and navigated to edits page" do
     park = FactoryGirl.create_list(:park, 3)
-    # binding.pry
     visit park_path(park.first.id)
     click_link("Update")
 
@@ -20,7 +19,7 @@ feature "authenticated users can edit park information" do
   scenario "visitor edits park information and submits changes" do
     park = FactoryGirl.create_list(:park, 3)
 
-    visit edit_park_path(park.first.id)
+    visit edit_park_path(park.first)
 
     fill_in("Title", with: "Central Park")
     fill_in("Location", with: "NYC")
