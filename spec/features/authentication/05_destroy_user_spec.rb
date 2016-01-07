@@ -14,7 +14,7 @@ feature 'delete account', %{
     visit root_path
     sign_in_as(user)
 
-    click_link(user.email)
+    click_link("My profile")
     click_link("Update")
 
     click_button("Cancel my account")

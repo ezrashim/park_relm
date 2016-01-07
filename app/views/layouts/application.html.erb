@@ -13,18 +13,62 @@
   </head>
 
   <body>
-    <section class='top-bar-section'>
-      <ul class='right'>
+
+
+
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h2><a href="/">Park Perks</a></h2>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <!-- <li><a href="#">Button</a></li> -->
+
+
+      <li class="has-dropdown">
         <% if current_user %>
-          <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <li> <%= link_to "#{current_user.email}", user_path(current_user) %></li>
+          <a href="#"><%= current_user.email %></a>
+          <ul class="dropdown">
+            <li><%= link_to "My profile", user_path(current_user) %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          </ul>
         <% else %>
+        <a href="#">Account</a>
+          <ul class="dropdown">
             <li><%= link_to 'Sign Up', new_user_registration_path  %></li>
             <li><%= link_to 'Sign In', new_user_session_path %></li>
+          </ul>
         <% end %>
+      </li>
+    </ul>
 
-      </ul>
-    </section>
+    <!-- Left Nav Section -->
+    <ul class="left">
+
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <input type="text" placeholder="Find Stuff">
+          </div>
+          <div class="large-4 small-3 columns">
+            <a href="#" class="alert button expand">Search</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+
+  </section>
+</nav>
+
+
+
 
     <% flash.each do |key, value| %>
       <div>
