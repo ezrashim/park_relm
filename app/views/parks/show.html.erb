@@ -30,9 +30,28 @@
   <%end%>
 </ul>
 
+
 <div>
   <%= link_to 'Update', edit_park_path %>
   <% if !current_user.nil? && current_user.admin? %>
   <%= link_to 'Delete', park_path(@park), method: "delete" %>
   <% end %>
 </div>
+
+
+
+<ul>
+
+  <% @park.reviews.each do |review|%>
+    <div class="inline-list">
+      <li>
+        <%= review.title%>
+        <div>
+          <%= review.body %>
+        </div>
+        <hr>
+      </li>
+    </div>
+  <%end%>
+
+</ul>
