@@ -1,8 +1,8 @@
-@import 'colors';
-@import 'foundation_and_overrides';
+@import "colors";
+@import "foundation_and_overrides";
 @import url(https://fonts.googleapis.com/css?family=PT+Mono);
 
-$font-stack: 'PT Mono', ;
+$font-stack: "PT Mono";
 
 //colors
 // $primary-color :
@@ -39,10 +39,6 @@ body {
   }
 }
 
-
-
-
-
 @mixin vertical-align {
   position: relative;
   top: 50%;
@@ -50,7 +46,6 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
 
 .leaf {
   background: url('http://static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg') no-repeat center center;
