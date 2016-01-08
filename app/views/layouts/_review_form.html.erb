@@ -1,0 +1,14 @@
+<%= form_for [@park, @review] do |f| %>
+  <ul>
+    <%=f.label :title, "Title" %>
+    <%= f.text_field :title %>
+  </ul>
+  <ul>
+    <%=f.label :body, "Body" %>
+    <%= f.text_field :body %>
+  </ul>
+
+  <ul>
+    <%= f.submit "Add a Review" %>
+  </ul>
+<% end %>

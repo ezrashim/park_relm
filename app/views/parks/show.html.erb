@@ -32,14 +32,12 @@
 
 
 <div>
-  <%= link_to 'Update', edit_park_path %>
+  <%= link_to 'Update', edit_park_path(@park) %>
   <%= link_to 'Delete', park_path(@park), method: "delete" %>
 </div>
 
 
-
 <ul>
-
   <% @park.reviews.each do |review|%>
     <div class="inline-list">
       <li>
@@ -53,3 +51,9 @@
   <%end%>
 
 </ul>
+
+<div>
+
+
+<%= render "layouts/review_form" %>
+</div>
