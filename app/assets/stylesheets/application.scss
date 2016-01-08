@@ -1,4 +1,27 @@
+@import 'colors';
 @import 'foundation_and_overrides';
+@import url(https://fonts.googleapis.com/css?family=PT+Mono);
+
+$font-stack: 'PT Mono', ;
+
+//colors
+// $primary-color :
+// $secondary-color
+// $primary-brand-color
+// $secondary-brand-color
+
+$primary-background-color: $pastel-orange; //  pastel-orange
+$secondary-background-color: $light-green; // light-green
+// in overrides
+// $primary-color: #F35F55; //  pastel-red
+// $secondary-color: #335650; //dark-green
+
+// Styles
+body {
+
+  font-family: $font-stack;
+  font-weight: normal;
+}
 
 .has-form {
   position: absolute;
@@ -16,9 +39,13 @@
   }
 }
 
+.dropdown{
+background-color:  $secondary-color;
 
-.top-bar .name {
-  padding-right: 15px;
+}
+
+.top-bar {
+  background-color:  $secondary-color;
 }
 
 @mixin vertical-align {
@@ -43,7 +70,7 @@
 }
 
 .footer {
-  background-color: #292c2f;
+  background-color:  $secondary-color;
   text-align: center;
   font-size: 1.2rem;
   padding: 2rem;
