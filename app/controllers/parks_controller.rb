@@ -63,7 +63,8 @@ class ParksController < ApplicationController
       :picnic,
       :pets,
       :basketball,
-      :baseball)
+      :baseball
+    )
   end
 
   def authorize_user
