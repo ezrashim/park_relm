@@ -9,9 +9,9 @@ feature 'when user goes to park show page, park reviews are listed', %{
   # * If I go to a park's show page, I can view all of its reviews
 
   scenario 'user views reviews on park show page' do
-    user = create(:user)
-    park = create(:park)
-    review = create(:review, user: user, park: park)
+    review = create(:review)
+    park = review.park
+
     visit root_path
     click_link (park.title)
 
