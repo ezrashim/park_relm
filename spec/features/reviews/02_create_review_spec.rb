@@ -22,10 +22,8 @@ feature 'add a new review', %{
     fill_in("Title", with: "Awesome park")
     fill_in("Body", with: "I can go to this park anytime of the year")
 
-    # binding.pry
-    # save_and_open_page
     click_button ("Add a Review")
-# save_and_open_page
+
     expect(page).to have_content("Awesome park")
     expect(page).to have_content("I can go to this park anytime of the year")
   end
@@ -36,7 +34,7 @@ feature 'add a new review', %{
 
     visit root_path
     sign_in_as(user)
-    
+
     visit root_path
     click_link (park.title)
 

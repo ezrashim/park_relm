@@ -2,14 +2,8 @@ class ReviewsController < ApplicationController
 
 
   def create
-    # binding.pry
     @park = Park.find(params[:park_id])
-    # binding.pry
-
-    @review = Review.new(title: params[:review][:title], body: params[:review][:body], park: @park, user: current_user)
-    # binding.pry
-    # @park = @review.park
-
+    @review = Review.new(review_params)
 
     if @review.save
       flash[:success] = "Review successfully created!"
@@ -23,8 +17,9 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(
-      :title,
-      :body,)
+    r_params = params.require(:review).permit(:title, :body,)
+    r_params.store(:park_id, params[:park_id])
+    r_params.store( :user_id ,current_user.id)
+    return r_params
   end
 end
