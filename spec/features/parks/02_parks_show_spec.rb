@@ -6,7 +6,7 @@ require "rails_helper"
 
 feature "authenticated users can view parks" do
   scenario "visitor signs in and views parks on index page" do
-    parks = FactoryGirl.create_list(:park, 3)
+    parks = create_list(:park, 3)
 
     visit root_path
 
@@ -30,7 +30,7 @@ feature "authenticated users can view parks" do
       pets: true,
       basketball: true,
       baseball: true
-    ) 
+    )
   }
 
   scenario "visitor signs in and views parks on index page" do
