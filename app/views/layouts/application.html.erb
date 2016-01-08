@@ -67,9 +67,6 @@
   </section>
 </nav>
 
-
-
-
     <% flash.each do |key, value| %>
       <div>
         <%= value %>
@@ -77,6 +74,21 @@
     <% end %>
 
     <%= yield %>
+
+    <div class="footer">
+      <!-- <div class="leaf">
+      </div> -->
+      <div class="row">
+        <div class="small-12 columns">
+          <p class="slogan">Park Perks</p>
+          <p class="links">
+            <a href="/">Home</a>
+            <a href="#">Contact</a>
+          </p>
+          <p class="copywrite">Copyright not copypwrite © 2016</p>
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>
