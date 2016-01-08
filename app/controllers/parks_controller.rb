@@ -41,8 +41,7 @@ class ParksController < ApplicationController
 
   def destroy
     @park = Park.find(params[:id])
-    @park.destroy
-    if @park.persisted?
+    if @park.destroyed?
       flash[:notice] = "You failed to delete park!"
       render :show
     else
