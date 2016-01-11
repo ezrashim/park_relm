@@ -39,16 +39,21 @@
 
 <ul>
   <% @park.reviews.each do |review|%>
-    <div class="inline-list">
-      <li>
-        <%= review.title%>
-        <div>
-          <%= review.body %>
-        </div>
-        <hr>
-      </li>
-    </div>
-  <%end%>
+    <% if !review.id.nil?%>
+      <div class="inline-list">
+          <li>
+            <%= review.title%>
+            <div>
+                <%= link_to 'Edit', edit_park_review_path(@park, review)%>
+            </div>
+            <div>
+              <%= review.body %>
+            </div>
+            <hr>
+          </li>
+      </div>
+    <% end %>
+  <% end %>
 
 </ul>
 
