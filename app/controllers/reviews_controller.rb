@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   def create
-
     @park = Park.find(params[:park_id])
 
     @review = @park.reviews.new(review_params)
