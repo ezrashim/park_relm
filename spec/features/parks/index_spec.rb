@@ -8,7 +8,7 @@ require "rails_helper"
 feature "users can view parks" do
 
   scenario "visitor signs in and views parks on index page" do
-    parks = create_list(:park, 2)
+    parks = FactoryGirl.create_list(:park_with_reviews, 2)
     visit root_path
 
     expect(page).to have_content "Parks"
