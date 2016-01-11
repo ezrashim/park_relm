@@ -1,6 +1,5 @@
 class ParksController < ApplicationController
-  before_action :authorize_user,
-    except: [:index, :show, :new, :create, :edit, :update]
+  before_action :authorize_user, only: [:destroy]
 
   def index
     @parks = Park.all
@@ -52,7 +51,7 @@ class ParksController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def park_params
     params.require(:park).permit(
@@ -65,11 +64,5 @@ class ParksController < ApplicationController
       :basketball,
       :baseball
     )
-  end
-
-  def authorize_user
-    if !user_signed_in? || !current_user.admin?
-      raise ActionController::RoutingError.new("Not Found")
-    end
   end
 end

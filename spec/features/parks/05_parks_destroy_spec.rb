@@ -5,12 +5,15 @@ require "rails_helper"
 # So that I nonbody can review them
 
 feature "authorized user can delete park information" do
+  let(:park) { create :park }
+  let(:admin) { create :user, role: "admin" }
+  let(:user) { create :user }
+
+
   scenario "admin signs in, navigated to edits page and deletes park" do
-    park = create(:park)
-    user = create(:user, role: 'admin')
 
     visit root_path
-    sign_in_as(user)
+    sign_in_as(admin)
 
     visit park_path(park)
     click_link("Delete")
@@ -18,8 +21,6 @@ feature "authorized user can delete park information" do
   end
 
   scenario "member signs in, should be unable to delete park" do
-    park = create(:park)
-    user = create(:user)
 
     visit root_path
     sign_in_as(user)
