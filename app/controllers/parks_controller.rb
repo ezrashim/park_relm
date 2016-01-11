@@ -7,6 +7,7 @@ class ParksController < ApplicationController
 
   def show
     @park = Park.find(params[:id])
+    @review = Review.new
   end
 
   def new
