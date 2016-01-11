@@ -29,7 +29,7 @@ feature 'add a new review', %{
     expect(page).to have_content("10")
   end
 
-  scenario 'authenticated user adds invalid infor for reviews on park show page' do
+  scenario 'authenticated user adds invalid review info on park show page' do
     park = create(:park)
     user = create(:user)
 
