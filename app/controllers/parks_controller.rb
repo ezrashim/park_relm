@@ -43,9 +43,8 @@ class ParksController < ApplicationController
 
   def destroy
     @park = Park.find(params[:id])
-
     @park.destroy
-    
+
     if @park.destroyed?
       flash[:notice] = "You have deleted park successfully!"
       redirect_to root_path

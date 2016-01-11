@@ -35,18 +35,18 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-      @review = Review.find(params[:id])
-      @park = @review.park
-      @review.destroy
+    @review = Review.find(params[:id])
+    @park = @review.park
+    @review.destroy
 
-      if @review.destroyed?
-        flash[:notice] = "You have deleted review successfully!"
-        redirect_to park_path(@park)
-      else
-        flash[:notice] = "You failed to delete review!"
-        render "parks/show"
-      end
+    if @review.destroyed?
+      flash[:notice] = "You have deleted review successfully!"
+      redirect_to park_path(@park)
+    else
+      flash[:notice] = "You failed to delete review!"
+      render "parks/show"
     end
+  end
 
   private
 
