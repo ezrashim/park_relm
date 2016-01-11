@@ -15,6 +15,6 @@ feature 'when user goes to park show page, park reviews are listed', %{
     visit root_path
     click_link (park.title)
 
-    expect(page).to have_content(review.body)
+    expect(page).to have_content(review.title)
   end
 end

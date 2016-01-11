@@ -11,7 +11,6 @@ feature 'delete account', %{
 
   scenario 'authenticated user deletes account' do
     user = create(:user)
-    visit root_path
     sign_in_as(user)
 
     click_link("My profile")

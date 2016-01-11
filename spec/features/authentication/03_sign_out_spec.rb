@@ -12,7 +12,6 @@ feature 'sign out', %{
 
   scenario 'authenticated user signs out' do
     user = create(:user)
-    visit root_path
     sign_in_as(user)
 
     expect(page).to have_content("Signed in successfully.")
