@@ -21,11 +21,12 @@ feature 'add a new review', %{
 
     fill_in("Title", with: "Awesome park")
     fill_in("Body", with: "I can go to this park anytime of the year")
-
+    select "10", :from => "Rating"
     click_button ("Add a Review")
 
     expect(page).to have_content("Awesome park")
     expect(page).to have_content("I can go to this park anytime of the year")
+    expect(page).to have_content("10")
   end
 
   scenario 'authenticated user adds invalid infor for reviews on park show page' do
