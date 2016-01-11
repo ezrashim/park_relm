@@ -10,7 +10,6 @@ feature "authorized user can delete park information" do
   let(:user) { create :user }
 
   scenario "admin signs in, navigated to edits page and deletes park" do
-    visit root_path
     sign_in_as(admin)
     visit park_path(park)
     click_link("Delete")
@@ -19,7 +18,6 @@ feature "authorized user can delete park information" do
   end
 
   scenario "member signs in, should be unable to delete park" do
-    visit root_path
     sign_in_as(user)
     visit park_path(park)
 
