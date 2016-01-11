@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-
 ruby "2.0.0"
+
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -32,3 +32,5 @@ end
 group :test do
   gem 'coveralls', require: false
 end
+
+gem 'rails_12factor', group: :production
