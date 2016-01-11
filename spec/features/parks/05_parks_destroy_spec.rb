@@ -6,7 +6,7 @@ require "rails_helper"
 
 feature "authorized user can delete park information" do
   scenario "admin signs in, navigated to edits page and deletes park" do
-    park = FactoryGirl.create(:park)
+    park = create(:park)
     visit park_path(park)
     click_link("Delete")
     expect(page).to have_content("You have deleted park successfully!")

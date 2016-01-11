@@ -10,10 +10,6 @@ feature "users can view parks" do
   scenario "visitor signs in and views parks on index page" do
 
     parks = FactoryGirl.create_list(:park_with_reviews, 2)
-    # parks.each do |park|
-    #   # create a review for that park
-    # end
-
     visit root_path
 
     expect(page).to have_content "Parks"
