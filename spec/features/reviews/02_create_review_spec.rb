@@ -7,13 +7,10 @@ feature 'add a new review', %{
   } do
   # ACCEPTANCE CRITERIA
   # * As an authenticated user, I can add a new review
+  let!(:park) { create(:park)}
+  let!(:user) { create(:user)}
 
   scenario 'authenticated user adds reviews on park show page' do
-    park = create(:park)
-
-    user = create(:user)
-
-    visit root_path
     sign_in_as(user)
 
     visit root_path
@@ -22,7 +19,7 @@ feature 'add a new review', %{
     fill_in("Title", with: "Awesome park")
     fill_in("Body", with: "I can go to this park anytime of the year")
     select "10", from: "Rating"
-    click_button ("Add a Review")
+    click_button ("Create Review")
 
     expect(page).to have_content("Awesome park")
     expect(page).to have_content("I can go to this park anytime of the year")
@@ -30,10 +27,6 @@ feature 'add a new review', %{
   end
 
   scenario 'authenticated user adds invalid review info on park show page' do
-    park = create(:park)
-    user = create(:user)
-
-    visit root_path
     sign_in_as(user)
 
     visit root_path
@@ -41,7 +34,7 @@ feature 'add a new review', %{
 
     fill_in("Title", with: "")
     fill_in("Body", with: "")
-    click_button ("Add a Review")
+    click_button ("Create Review")
 
     expect(page).to have_content("Title can't be blank")
     expect(page).to have_content("Body can't be blank")

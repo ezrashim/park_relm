@@ -1,8 +1,9 @@
 class ReviewsController < ApplicationController
   def create
     @park = Park.find(params[:park_id])
-    @review = Review.new(review_params)
-
+    @review = @park.reviews.new(review_params)
+    @review.user = current_user
+    
     if @review.save
       flash[:success] = "Review successfully created!"
       redirect_to park_path(@park)
@@ -15,9 +16,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    r_params = params.require(:review).permit(:title, :body)
-    r_params.store(:park_id, params[:park_id])
-    r_params.store(:user_id, current_user.id)
-    return r_params
+    params.require(:review).permit(:title, :body)
   end
 end
