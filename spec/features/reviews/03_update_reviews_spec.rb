@@ -52,6 +52,5 @@ feature "review creator can edit review information" do
     click_button("Update")
 
     expect(page).to have_content("Invalid input.")
-
   end
 end
