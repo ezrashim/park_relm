@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
     @park = Park.find(params[:park_id])
     @review = @park.reviews.new(review_params)
     @review.user = current_user
-    
+
     if @review.save
       flash[:success] = "Review successfully created!"
       redirect_to park_path(@park)

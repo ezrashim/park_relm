@@ -7,8 +7,8 @@ feature 'add a new review', %{
   } do
   # ACCEPTANCE CRITERIA
   # * As an authenticated user, I can add a new review
-  let!(:park) { create(:park)}
-  let!(:user) { create(:user)}
+  let!(:park) { create(:park) }
+  let!(:user) { create(:user) }
 
   scenario 'authenticated user adds reviews on park show page' do
     sign_in_as(user)
