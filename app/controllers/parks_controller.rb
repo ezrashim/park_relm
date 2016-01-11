@@ -1,4 +1,5 @@
 class ParksController < ApplicationController
+  before_action :authorize_user, only: [:destroy]
 
   def index
     @parks = Park.all
@@ -62,6 +63,7 @@ class ParksController < ApplicationController
       :picnic,
       :pets,
       :basketball,
-      :baseball)
+      :baseball
+    )
   end
 end
