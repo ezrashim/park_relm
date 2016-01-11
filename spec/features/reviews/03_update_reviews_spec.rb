@@ -6,11 +6,11 @@ require "rails_helper"
 
 feature "review creator can edit review information" do
 
-  scenario "Review creator signs in and navigates to edit review page" do
-    review = create(:review)
-    park = review.park
-    user = review.user
+  let(:review) { create(:review) }
+  let(:park) { review.park }
+  let(:user) { review.user }
 
+  scenario "Review creator signs in and navigates to edit review page" do
     sign_in_as(user)
 
     click_link (park.title)
@@ -20,10 +20,6 @@ feature "review creator can edit review information" do
   end
 
   scenario "Review creator creates and edits new review" do
-    review = create(:review)
-    park = review.park
-    user = review.user
-
     sign_in_as(user)
 
     click_link (park.title)
@@ -38,10 +34,6 @@ feature "review creator can edit review information" do
   end
 
   scenario "Review creator creates and edits new review incorrectly" do
-    review = create(:review)
-    park = review.park
-    user = review.user
-
     sign_in_as(user)
 
     click_link (park.title)
@@ -52,6 +44,5 @@ feature "review creator can edit review information" do
     click_button("Update")
 
     expect(page).to have_content("Invalid input.")
-
   end
 end

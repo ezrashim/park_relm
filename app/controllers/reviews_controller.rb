@@ -15,13 +15,13 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
-    @park = @review.park
+    review
+    park
   end
 
   def update
-    @review = Review.find(params[:id])
-    @park = @review.park
+    review
+    park
 
     @review.update(review_params)
 
@@ -38,5 +38,13 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:title, :body)
+  end
+
+  def review
+    @review ||= Review.find(params[:id])
+  end
+
+  def park
+    @park ||= review.park
   end
 end
