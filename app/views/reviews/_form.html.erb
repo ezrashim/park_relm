@@ -1,0 +1,20 @@
+<%= form_for [@park, @review] do |f| %>
+  <ul>
+    <%=f.label :title, "Title" %>
+    <%= f.text_field :title %>
+  </ul>
+
+  <ul>
+    <%= f.label :rating, "Rating" %>
+    <%= f.select(:rating, options_for_select([1, 2, 3, 4 ,5 ,6 ,7 ,8, 9, 10])) %>
+  </ul>
+
+  <ul>
+    <%=f.label :body, "Body" %>
+    <%= f.text_field :body %>
+  </ul>
+
+  <ul>
+    <%= f.submit %>
+  </ul>
+<% end %>

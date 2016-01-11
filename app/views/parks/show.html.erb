@@ -30,7 +30,30 @@
   <%end%>
 </ul>
 
+
 <div>
-  <%= link_to 'Update', edit_park_path %>
+  <%= link_to 'Update', edit_park_path(@park) %>
   <%= link_to 'Delete', park_path(@park), method: "delete" %>
+</div>
+
+
+<ul>
+  <% @park.reviews.each do |review|%>
+    <div class="inline-list">
+      <li>
+        <%= review.title%>
+        <div>
+          <%= review.body %>
+        </div>
+        <hr>
+      </li>
+    </div>
+  <%end%>
+
+</ul>
+
+<div>
+
+
+<%= render "reviews/form" %>
 </div>
