@@ -37,7 +37,7 @@
         <% if user_signed_in? %>
           <a href="#">
             <% unless current_user.profile_photo.nil? %>
-              <img src="<%= current_user.profile_photo %>" height="30" width="30">
+              <%= image_tag "#{current_user.profile_photo}", size: "30x30" %>
             <% end %>
             <%= current_user.email %>
           </a>
