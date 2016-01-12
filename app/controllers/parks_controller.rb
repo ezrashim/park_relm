@@ -2,7 +2,7 @@ class ParksController < ApplicationController
   before_action :authorize_user, only: [:destroy]
 
   def index
-    @parks = Park.all
+    @parks = Park.order(rating: :desc).page params[:page]
   end
 
   def show
