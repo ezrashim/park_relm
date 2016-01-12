@@ -3,7 +3,7 @@ class ParksController < ApplicationController
   before_action :park, only: [:show, :edit, :update, :destroy]
 
   def index
-    @parks = Park.all
+    @parks = Park.order(rating: :desc).page params[:page]
   end
 
   def show
