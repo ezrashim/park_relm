@@ -1,8 +1,8 @@
 @import "colors";
 @import "foundation_and_overrides";
-@import url(https://fonts.googleapis.com/css?family=PT+Mono);
+@import url(https://fonts.googleapis.com/css?family=Mako);
 
-$font-stack: "PT Mono";
+$font-stack: 'Mako', sans-serif;
 
 //colors
 // $primary-color :
@@ -13,15 +13,38 @@ $font-stack: "PT Mono";
 $primary-background-color: $pastel-orange; //  pastel-orange
 $secondary-background-color: $light-green; // light-green
 // in overrides
-// $primary-color: #F35F55; //  pastel-red
-// $secondary-color: #335650; //dark-green
+$primary-color: #F35F55; //  pastel-red
+$secondary-color: #335650; //dark-green
 
 // Styles
 body {
-
+  background-color: #eaeee8;
   font-family: $font-stack;
   font-weight: normal;
 }
+
+.park-index-list-item {
+  background-color: #d5edcd;
+  list-style-type: none;
+  padding: 20px 30px;
+  margin-bottom: 5px;
+}
+
+.index-details {
+    line-height: 2;
+    font-size: 100%;
+    color: #636363;
+    float: left;
+  }
+
+.index-rating {
+  font-size: 300%;
+  color: #636363;
+  float: right;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  }
 
 .has-form {
   position: absolute;
@@ -60,6 +83,7 @@ body {
 }
 
 .footer {
+  font-family: $font-stack;
   background-color:  $secondary-color;
   text-align: center;
   font-size: 1.2rem;

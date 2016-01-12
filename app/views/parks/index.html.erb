@@ -1,14 +1,19 @@
 <h1>Parks</h1>
 
-<ul>
-    <% @parks.each do |park| %>
-  <li>
-      <%= link_to park.title, park_path(park) %>
-      <%= park.location %>
-      <%= park.rating %>
-  </li>
-    <% end %>
+<div>
+  <%= link_to "New Park", new_park_path %>
+</div>
+
+<ul class="small-10 small-centered column">
+  <% @parks.each do |park| %>
+    <div class="park-index-list-item">
+      <li class="park-head">
+        <%= link_to park.title, park_path(park) %><br>
+        <%= park.location %>
+        <div class="index-rating">
+          <%= park.rating %>8.7
+        </div>
+      </li>
+    </div>
+  <% end %>
 </ul>
-
-
-<%= link_to "New Park", new_park_path %>
