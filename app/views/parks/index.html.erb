@@ -5,10 +5,11 @@
   <li>
       <%= link_to park.title, park_path(park) %>
       <%= park.location %>
-      <%= park.rating %>
+      <%= park.reviews.average(:rating) %>
   </li>
     <% end %>
 </ul>
 
-
-<%= link_to "New Park", new_park_path %>
+<% if user_signed_in? %>
+  <%= link_to "New Park", new_park_path %>
+<% end %>

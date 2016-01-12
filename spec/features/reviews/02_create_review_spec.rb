@@ -20,7 +20,7 @@ feature 'add a new review', %{
     fill_in("Body", with: "I can go to this park anytime of the year")
     select "10", from: "Rating"
     click_button ("Create Review")
-
+  
     expect(page).to have_content("Awesome park")
     expect(page).to have_content("I can go to this park anytime of the year")
     expect(page).to have_content("10")
