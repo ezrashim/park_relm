@@ -7,7 +7,6 @@ class ParksController < ApplicationController
   end
 
   def show
-    park
     @review = Review.new
   end
 
