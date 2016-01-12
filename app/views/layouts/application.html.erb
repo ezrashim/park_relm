@@ -35,7 +35,12 @@
 
       <li class="has-dropdown">
         <% if user_signed_in? %>
-          <a href="#"><%= current_user.email %></a>
+          <a href="#">
+            <% unless current_user.profile_photo.nil? %>
+              <%= image_tag "#{current_user.profile_photo}", size: "30x30" %>
+            <% end %>
+            <%= current_user.email %>
+          </a>
           <ul class="dropdown">
             <li><%= link_to "My profile", user_path(current_user) %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>

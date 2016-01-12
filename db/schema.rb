@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20160112182418) do
     t.datetime "updated_at",                                null: false
     t.string   "first_name",                                null: false
     t.string   "last_name",                                 null: false
-    t.string   "avatar_url"
     t.string   "role",                   default: "member", null: false
+    t.string   "profile_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -11,7 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'devise'
-
+gem "carrierwave"
+gem "fog"
 
 group :development, :test do
   gem 'byebug'
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda'
   gem 'shoulda-matchers', '~> 3.0.1'
+  gem "dotenv-rails"
 end
 
 group :development do

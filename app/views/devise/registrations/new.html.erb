@@ -32,9 +32,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :avatar_url, 'Profile URL' %><br />
-    <%= f.text_field :avatar_url, autocomplete: "off" %>
-  </div>
+    <%= f.label :profile_photo, 'Profile Photo' %><br />
+    <%= f.file_field :profile_photo %>
+    </div>
 
   <div class="actions">
     <%= f.submit "Sign Up" %>

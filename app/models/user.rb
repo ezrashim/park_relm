@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :profile_photo, ProfilePhotoUploader
   has_many :reviews
   has_many :parks, through: :reviews
   has_many :votes
