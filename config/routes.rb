@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :parks do
-    resources :reviews, only: [:create, :edit, :update]
+    resources :reviews, only: [:create, :edit, :update] do
+      resources :votes, only: [:create, :update]
+    end
   end
 end

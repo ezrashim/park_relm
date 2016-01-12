@@ -44,6 +44,31 @@
     <% if !review.id.nil?%>
           <li class="inline-list">
             <%= review.title%>
+            <% flag = false %>
+
+            <% if !review.votes.nil?  %>
+              <% review.votes.each do |vote|%>
+                <% if vote.user_id == current_user.id %>
+                  <% flag = true %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <% if flag %>
+                <%= button_to 'Up', {controller: "votes", action: "update", park_id: @park.id, review_id: review.id, vote: "up"} , method: :patch  %>
+                <div>
+
+                  vote count: <%= review.vote_count%>
+                </div>
+                <%= button_to 'Down', {controller: "votes", action: "update", park_id: @park.id, review_id: review.id, vote: "down"} , method: :patch %>
+            <% else %>
+              <%= button_to 'Up', {controller: "votes", action: "create", park_id: @park.id, review_id: review.id, vote: "up"} , method: :post  %>
+              <div>
+                vote count: <%= review.vote_count%>
+              </div>
+              <%= button_to 'Down', {controller: "votes", action: "create", park_id: @park.id, review_id: review.id, vote: "down"} , method: :post %>
+            <% end %>
+
             <div>
                 <%= link_to 'Edit', edit_park_review_path(@park, review)%>
             </div>
@@ -53,8 +78,8 @@
             <hr>
           </li>
 
+      <% end %>
     <% end %>
-  <% end %>
 
 </ul>
 
