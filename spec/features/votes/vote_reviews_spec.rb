@@ -5,12 +5,12 @@ feature 'create vote', %{
   I want to vote on a review
   So that I can show my support for a review
   } do
-    # ACCEPTANCE CRITERIA
-    # * User should be able to click "Vote" on a review from the review show page
-    # * Should occur without page reload
+  # ACCEPTANCE CRITERIA
+  # * User should be able to click "Vote" on a review from the review show page
+  # * Should occur without page reload
 
-    let!(:park) { create(:park_with_reviews)}
-    let!(:user) { create(:user) }
+  let!(:park) { create(:park_with_reviews)}
+  let!(:user) { create(:user) }
 
   scenario 'user up votes on a review' do
     sign_in_as(user)

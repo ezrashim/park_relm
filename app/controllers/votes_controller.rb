@@ -1,25 +1,20 @@
 class VotesController < ApplicationController
+  before_action :review, only: [:create, :update]
+  before_action :park, only: [:create, :update]
+
   def create
-
-    review = Review.find(params[:review_id])
-    @park = review.park
-    vc = review.vote_count
-
     if params[:vote] == "up"
-      vote = review.votes.new(vote: 1)
-      vc += 1
-      review.increment(:vote_count)
+      vote = @review.votes.new(vote: 1)
+      @review.increment(:vote_count)
     elsif params[:vote] == "down"
-      vote = review.votes.new(vote: -1)
-      vc -= 1
-      review.increment(:vote_count, -1)
+      vote = @review.votes.new(vote: -1)
+      @review.increment(:vote_count, -1)
     else
-      vote = review.votes.new
+      vote = @review.votes.new
     end
 
     vote.user = current_user
-    # binding.pry
-    review.save
+    @review.save
 
     if vote.save
       flash[:success] = "You have #{params[:vote]} voted successfully!"
@@ -28,14 +23,10 @@ class VotesController < ApplicationController
       flash[:notice] = vote.errors.full_messages
       render 'parks/show'
     end
-
   end
 
   def update
-    review = Review.find(params[:review_id])
-    @park = review.park
-
-    vote = Vote.where(review: review, user: current_user).first
+    vote = Vote.where(review: @review, user: current_user).first
 
     if vote.vote == 0 && params[:vote] == "up"
       vote.update(vote: 1)
@@ -62,15 +53,11 @@ class VotesController < ApplicationController
 
   private
 
-  def vote_params
-    params.permit(:vote)
-  end
-
   def review
-    @review ||= Review.find(params[:id])
+    @review ||= Review.find(params[:review_id])
   end
 
   def park
-    @park ||= review.park
+    @park ||= @review.park
   end
 end
