@@ -23,9 +23,7 @@ class ReviewsController < ApplicationController
     review
     park
 
-    @review.update(review_params)
-
-    if @review.save
+    if @review.update(review_params)
       flash[:notice] = "You have successfully updated your review!"
       redirect_to @park
     else
@@ -35,11 +33,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
-    @park = @review.park
-    @review.destroy
+    review
+    park
 
-    if @review.destroyed?
+    if @review.destroy
       flash[:notice] = "You have deleted review successfully!"
       redirect_to park_path(@park)
     else

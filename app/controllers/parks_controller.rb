@@ -6,7 +6,7 @@ class ParksController < ApplicationController
   end
 
   def show
-    @park = Park.find(params[:id])
+    park
     @review = Review.new
   end
 
@@ -26,13 +26,11 @@ class ParksController < ApplicationController
   end
 
   def edit
-    @park = Park.find(params[:id])
+    park
   end
 
   def update
-    @park = Park.find(params[:id])
-    @park.update(park_params)
-    if @park.save
+    if park.update(park_params)
       flash[:notice] = "You have successfully updated your question!"
       redirect_to @park
     else
@@ -42,10 +40,7 @@ class ParksController < ApplicationController
   end
 
   def destroy
-    @park = Park.find(params[:id])
-    @park.destroy
-
-    if @park.destroyed?
+    if park.destroy
       flash[:notice] = "You have deleted park successfully!"
       redirect_to root_path
     else
@@ -55,6 +50,10 @@ class ParksController < ApplicationController
   end
 
   private
+
+  def park
+    @park ||= Park.find(params[:id])
+  end
 
   def park_params
     params.require(:park).permit(
