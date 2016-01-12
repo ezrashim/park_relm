@@ -19,7 +19,6 @@ feature 'sign up', %{
     fill_in('Email', with: 'johndoe@123.com')
     fill_in('Enter Password', with: 'Seekrit123')
     fill_in('Confirm Password', with: 'Seekrit123')
-    fill_in('Profile URL', with: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png')
     click_button('Sign Up')
 
     expect(page).to have_content("Welcome! Thank you for signing up.")
