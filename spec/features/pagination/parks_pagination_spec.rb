@@ -4,12 +4,18 @@ require "rails_helper"
 # So that I can see only 10 items per page
 
 feature "users can view parks" do
-  let! (:parks) { create_list(:park_with_reviews, 25) }
-  scenario "visitor signs in and views parks on index page" do
-    park_list = parks.sort_by { |park| park.rating }
+  let! (:parks2) { create_list(:park_with_reviews, 5, rating: 2) }
+  let! (:parks4) { create_list(:park_with_reviews, 5, rating: 4) }
+  let! (:parks6) { create_list(:park_with_reviews, 5, rating: 6) }
+  let! (:parks8) { create_list(:park_with_reviews, 5, rating: 8) }
+  let! (:parks10) { create_list(:park_with_reviews, 5) }
+
+  scenario "visitor sees the 10 most recently added parks" do
+    park_list = parks2 + parks4 + parks6 + parks8 + parks10
+    park_sort = park_list.sort_by { |park| park.rating }
     visit root_path
 
-    expect(page).to have_content park_list.last.title
-    expect(page).to_not have_content park_list.first.title
+    expect(page).to have_content park_sort.last.title
+    expect(page).to_not have_content park_sort.first.title
   end
 end
