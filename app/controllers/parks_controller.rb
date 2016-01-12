@@ -1,5 +1,6 @@
 class ParksController < ApplicationController
   before_action :authorize_user, only: [:destroy]
+  before_action :park, only: [:show, :edit, :update, :destroy]
 
   def index
     @parks = Park.all
@@ -26,11 +27,10 @@ class ParksController < ApplicationController
   end
 
   def edit
-    park
   end
 
   def update
-    if park.update(park_params)
+    if @park.update(park_params)
       flash[:notice] = "You have successfully updated your question!"
       redirect_to @park
     else
@@ -40,7 +40,7 @@ class ParksController < ApplicationController
   end
 
   def destroy
-    if park.destroy
+    if @park.destroy
       flash[:notice] = "You have deleted park successfully!"
       redirect_to root_path
     else
