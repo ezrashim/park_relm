@@ -46,6 +46,7 @@
             <%= review.title%>
             <div>
                 <%= link_to 'Edit', edit_park_review_path(@park, review)%>
+                <%= link_to 'Delete Review', park_review_path(@park, review), method: :delete%>
             </div>
             <div>
               <%= review.body %>

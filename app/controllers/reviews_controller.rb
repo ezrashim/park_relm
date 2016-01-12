@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+  before_action :review, only: [:edit, :update, :destroy]
+  before_action :park, only: [:edit, :update, :destroy]
+
   def create
     @park = Park.find(params[:park_id])
 
@@ -15,22 +18,25 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    review
-    park
   end
 
   def update
-    review
-    park
-
-    @review.update(review_params)
-
-    if @review.save
+    if @review.update(review_params)
       flash[:notice] = "You have successfully updated your review!"
       redirect_to @park
     else
       flash.now[:notice] = "Invalid input."
       render 'reviews/edit'
+    end
+  end
+
+  def destroy
+    if @review.destroy
+      flash[:notice] = "You have deleted review successfully!"
+      redirect_to park_path(@park)
+    else
+      flash[:notice] = "You failed to delete review!"
+      render "parks/show"
     end
   end
 
