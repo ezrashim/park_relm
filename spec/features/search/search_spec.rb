@@ -36,7 +36,6 @@ feature "users can find items using search bar" do
     visit root_path
     fill_in 'search', with: ""
     click_button 'Search'
-    save_and_open_page
 
     expect(page).to have_content("No results found!")
     expect(page).to_not have_content(parks.first.title)
