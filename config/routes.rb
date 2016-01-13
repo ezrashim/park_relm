@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  
+
   resources :parks do
     resources :reviews, only: [:create, :edit, :update, :destroy]
   end
