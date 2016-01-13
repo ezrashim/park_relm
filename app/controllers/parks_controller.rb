@@ -48,6 +48,14 @@ class ParksController < ApplicationController
     end
   end
 
+  def search
+    if params[:search].nil?
+      @parks = []
+    else
+      @parks = Park.where("title ILIKE ?", "%#{params[:search]}%")
+    end
+  end
+
   private
 
   def park
@@ -63,7 +71,7 @@ class ParksController < ApplicationController
       :picnic,
       :pets,
       :basketball,
-      :baseball
+      :baseball,
     )
   end
 end
