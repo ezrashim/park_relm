@@ -1,9 +1,8 @@
 require "rails_helper"
 #
-# I want to view a list of items
-# So that I can pick items to review
-
-# TO DO : As an authenticated user
+# I want to use the search bar
+# So that I can find items matching my criteria
+# And see them on a results page
 
 feature "users can find items using search bar" do
 
