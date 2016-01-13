@@ -5,12 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :parks do
-    collection do
-      get 'search'
-    end
-  end
-
-  resources :parks do
     resources :reviews, only: [:create, :edit, :update, :destroy]
   end
 end

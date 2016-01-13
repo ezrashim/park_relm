@@ -3,7 +3,15 @@ class ParksController < ApplicationController
   before_action :park, only: [:show, :edit, :update, :destroy]
 
   def index
-    @parks = Park.order(rating: :desc).page params[:page]
+    if params[:search].nil?
+      @parks = Park.order(rating: :desc).page params[:page]
+    elsif params[:search] == ""
+      parks = Park.none
+      @parks = parks.order(rating: :desc).page params[:page]
+    else
+      parks = Park.where("title ILIKE ?", "%#{params[:search]}%")
+      @parks = parks.order(rating: :desc).page params[:page]
+    end
   end
 
   def show
@@ -45,14 +53,6 @@ class ParksController < ApplicationController
     else
       flash[:notice] = "You failed to delete park!"
       render :show
-    end
-  end
-
-  def search
-    if params[:search].nil?
-      @parks = []
-    else
-      @parks = Park.where("title ILIKE ?", "%#{params[:search]}%")
     end
   end
 

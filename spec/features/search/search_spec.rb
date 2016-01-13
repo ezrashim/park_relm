@@ -30,4 +30,15 @@ feature "users can find items using search bar" do
     expect(page).to have_content("No results found!")
     expect(page).to_not have_content(parks.first.title)
   end
+
+  scenario "searches for empty string and gets empty results page" do
+    parks = create_list(:park_with_reviews, 2)
+    visit root_path
+    fill_in 'search', with: ""
+    click_button 'Search'
+    save_and_open_page
+
+    expect(page).to have_content("No results found!")
+    expect(page).to_not have_content(parks.first.title)
+  end
 end
