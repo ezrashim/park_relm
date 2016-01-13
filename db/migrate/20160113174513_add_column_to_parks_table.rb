@@ -1,5 +1,5 @@
 class AddColumnToParksTable < ActiveRecord::Migration
   def change
-    add_reference :parks, :user, index: true, foreign_key: true
+    add_column(:parks, :user_id, :integer, null: false)
   end
 end

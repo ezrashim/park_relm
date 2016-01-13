@@ -10,13 +10,9 @@ feature "park creator recieves email when new review is posted" do
     visit root_path
     sign_in_as(user)
 
-    click_link("New Park")
-    fill_in("Title", with: "Central Park")
-    fill_in("Location", with: "NYC")
-
-    click_button("Create Park")
+    parks = create_list(:park, 3)
     visit park_path(park)
-    click_link (park.title)
+    click_link (park.first.title)
 
     fill_in("Title", with: "Awesome park")
     fill_in("Body", with: "I can go to this park anytime of the year")
