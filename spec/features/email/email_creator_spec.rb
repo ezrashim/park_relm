@@ -5,7 +5,6 @@ require "rails_helper"
 
 feature "park creator recieves email when new review is posted" do
 
-
   scenario "Email sent if someone reviews a park successfully" do
     user = create(:user)
 
