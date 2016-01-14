@@ -46,6 +46,14 @@ body {
   transform: translateY(-50%);
   }
 
+.button {
+  background-color: $primary-color;
+}
+
+.button.alert {
+  background-color: $primary-color;
+}
+
 .has-form {
   position: absolute;
   top: 0;

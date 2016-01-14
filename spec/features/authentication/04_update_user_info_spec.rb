@@ -13,7 +13,6 @@ feature 'update user information', %{
 
   scenario 'an existing user updates first and last names' do
     user = create(:user)
-    visit root_path
     sign_in_as(user)
 
     click_link "My profile"

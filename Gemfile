@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-
 ruby "2.0.0"
+
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -11,7 +11,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'devise'
-
+gem 'kaminari'
+gem "carrierwave"
+gem "fog"
 
 group :development, :test do
   gem 'byebug'
@@ -22,6 +24,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem "dotenv-rails"
 end
 
 group :development do
@@ -32,3 +35,5 @@ end
 group :test do
   gem 'coveralls', require: false
 end
+
+gem 'rails_12factor', group: :production

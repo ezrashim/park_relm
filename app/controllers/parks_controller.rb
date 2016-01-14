@@ -1,11 +1,20 @@
 class ParksController < ApplicationController
+  before_action :authorize_user, only: [:destroy]
+  before_action :park, only: [:show, :edit, :update, :destroy]
 
   def index
-    @parks = Park.all
+    if params[:search] == ""
+      parks = Park.none
+    elsif params[:search]
+      parks = Park.where("title ILIKE ?", "%#{params[:search]}%")
+    else
+      parks = Park.all
+    end
+    @parks = parks.order(rating: :desc).page params[:page]
   end
 
   def show
-    @park = Park.find(params[:id])
+    @review = Review.new
   end
 
   def new
@@ -24,13 +33,10 @@ class ParksController < ApplicationController
   end
 
   def edit
-    @park = Park.find(params[:id])
   end
 
   def update
-    @park = Park.find(params[:id])
-    @park.update(park_params)
-    if @park.save
+    if @park.update(park_params)
       flash[:notice] = "You have successfully updated your question!"
       redirect_to @park
     else
@@ -40,17 +46,20 @@ class ParksController < ApplicationController
   end
 
   def destroy
-    @park = Park.find(params[:id])
-    if @park.destroyed?
-      flash[:notice] = "You failed to delete park!"
-      render :show
-    else
+    if @park.destroy
       flash[:notice] = "You have deleted park successfully!"
       redirect_to root_path
+    else
+      flash[:notice] = "You failed to delete park!"
+      render :show
     end
   end
 
   private
+
+  def park
+    @park ||= Park.find(params[:id])
+  end
 
   def park_params
     params.require(:park).permit(
@@ -61,6 +70,7 @@ class ParksController < ApplicationController
       :picnic,
       :pets,
       :basketball,
-      :baseball)
+      :baseball
+    )
   end
 end

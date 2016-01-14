@@ -6,7 +6,7 @@ require "rails_helper"
 
 feature "authenticated users can edit park information" do
   scenario "visitor signs in and views parks and navigated to edits page" do
-    park = FactoryGirl.create_list(:park, 3)
+    park = create_list(:park, 3)
     visit park_path(park.first.id)
     click_link("Update")
 

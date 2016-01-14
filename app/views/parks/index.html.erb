@@ -1,8 +1,12 @@
-<h1>Parks</h1>
+<% if params[:search].present? || params[:search] == "" %>
+  <h1>Search Results!</h1>
+<% else %>
+  <h1>Parks</h1>
+<% end %>
 
-<div>
-  <%= link_to "New Park", new_park_path %>
-</div>
+<% if @parks.none? || params[:search] == "" %>
+  <h5>No results found!</h5>
+<% end %>
 
 <ul class="small-10 small-centered column">
   <% @parks.each do |park| %>
@@ -17,3 +21,6 @@
     </div>
   <% end %>
 </ul>
+
+<%= paginate @parks %>
+<%= link_to "New Park", new_park_path %>
