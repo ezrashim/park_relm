@@ -11,6 +11,7 @@ FactoryGirl.define do
     baseball true
     user
 
+
     factory :park_with_reviews do
       after(:create) do |new_park|
         FactoryGirl.create(:review, park: new_park)
