@@ -6,12 +6,10 @@ class Api::V1::VotesController < ActionController::Base
   def create
     if (params[:vote][:review_id].empty? || params[:vote][:user_id].empty? || params[:vote][:vote].empty?)
       render json: :nothing, status: :not_found
-      # render json: { status: created, vote: @vote }
       return
     end
 
     review
-    # binding.pry
 
     if params[:vote][:vote] == "up"
       vote = @review.votes.new(vote: 1)
@@ -39,33 +37,29 @@ class Api::V1::VotesController < ActionController::Base
     @user = User.find(params[:vote][:user_id])
     @park = Park.find(params[:vote][:park_id])
 
-    @vote = Vote.where(user: @user, review: @review).first
+    @vote = Vote.find_by(review: @review, user: @user)
 
     if @vote.vote == 0 && params[:vote][:vote] == "up"
-      @vote.update(vote: 1)
-      @review.increment(:vote_count).save
+      value = 1
+      @review.increment(:vote_count)
     elsif @vote.vote == 0 && params[:vote][:vote] == "down"
-      @vote.update(vote: -1)
+      value = -1
       @review.increment(:vote_count, -1)
     elsif @vote.vote == -1 && params[:vote][:vote] == "up"
-      @vote.update(vote: 0)
+      value = 0
       @review.increment(:vote_count)
     elsif @vote.vote == 1 && params[:vote][:vote] == "down"
-      @vote.update(vote: 0)
+      value = 0
       @review.increment(:vote_count, -1)
     else
-      # binding.pry
       string = "You can't vote twice!"
       render json: { flash: string }, status: 422
       return
     end
 
-    @review.save
-    # binding.pry
 
-    if @vote.persisted?
+    if @vote.update(vote: value) && @review.save
       string = "You have successfully updated your vote!"
-      # binding.pry
       render json: { flash: string }, status: :created
     else
       string = "Unable to update vote."

@@ -7,17 +7,15 @@ class VotesController < ApplicationController
     if params[:vote] == "up"
       vote = @review.votes.new(vote: 1)
       @review.increment(:vote_count)
-    elsif params[:vote] == "down"
+    else params[:vote] == "down"
       vote = @review.votes.new(vote: -1)
       @review.increment(:vote_count, -1)
-    else
-      vote = @review.votes.new
     end
 
     vote.user = current_user
-    @review.save
 
-    if vote.save
+
+    if vote.save && @review.save
       flash[:success] = "You have #{params[:vote]} voted successfully!"
       redirect_to park_path(@park)
     else
@@ -27,20 +25,21 @@ class VotesController < ApplicationController
   end
 
   def update
-    vote = Vote.where(review: @review, user: current_user).first
+    vote = Vote.find_by(review: @review, user: current_user)
+    value = 0
 
     if vote.vote == 0 && params[:vote] == "up"
-      vote.update(vote: 1)
-      @review.increment(:vote_count).save
+      value = 1
+      @review.increment(:vote_count)
     elsif vote.vote == 0 && params[:vote] == "down"
-      vote.update(vote: -1)
-      @review.increment(:vote_count, -1).save
+      value = -1
+      @review.increment(:vote_count, -1)
     elsif vote.vote == -1 && params[:vote] == "up"
-      vote.update(vote: 0)
-      @review.increment(:vote_count).save
+      value = 0
+      @review.increment(:vote_count)
     elsif vote.vote == 1 && params[:vote] == "down"
-      vote.update(vote: 0)
-      @review.increment(:vote_count, -1).save
+      value = 0
+      @review.increment(:vote_count, -1)
     else
       flash[:double] = "You can't vote twice!"
       redirect_to park_path(@park)
@@ -48,7 +47,7 @@ class VotesController < ApplicationController
     end
 
 
-    if vote.persisted?
+    if vote.update(vote: value) && @review.save
       flash[:notice] = "You have successfully updated your rating!"
       redirect_to park_path(@park)
     else

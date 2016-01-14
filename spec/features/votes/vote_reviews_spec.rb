@@ -19,7 +19,6 @@ feature 'create vote', %{
     click_button("Up")
     expect(page).to have_content("You have up voted successfully!")
     expect(page).to have_content("vote count: 1")
-    expect(page).to_not have_content("You did not vote!")
   end
 
   scenario 'user down votes on a review' do
@@ -29,7 +28,6 @@ feature 'create vote', %{
     click_button("Down")
     expect(page).to have_content("You have down voted successfully!")
     expect(page).to have_content("vote count: -1")
-    expect(page).to_not have_content("You did not vote!")
   end
 
   scenario 'user up votes on a review twice' do
@@ -53,8 +51,6 @@ feature 'create vote', %{
     click_button("Down")
     expect(page).to have_content("You can't vote twice!")
     expect(page).to have_content("vote count: -1")
-    expect(page).to_not have_content("vote count: 0")
-    expect(page).to_not have_content("You have down voted successfully!")
   end
 
   scenario 'user down votes on a review twice' do
