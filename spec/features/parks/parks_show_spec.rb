@@ -5,6 +5,7 @@ require "rails_helper"
 # So that I can pick items to review
 
 feature "authenticated users can view parks" do
+
   scenario "visitor signs in and views parks on index page" do
     parks = create_list(:park, 3)
 
@@ -20,26 +21,14 @@ feature "authenticated users can view parks" do
     end
   end
 
-  let(:park) {
-    Park.create!(
-      title: "Commons",
-      location: "Boston",
-      rating: 10,
-      bathroom: true,
-      picnic: true,
-      pets: true,
-      basketball: true,
-      baseball: true
-    )
-  }
-
   scenario "visitor signs in and views parks on index page" do
-
+    park = create(:park)
     visit root_path
 
     expect(page).to have_content "Parks"
 
     visit park_path(park)
+
     expect(page).to have_content(park.title)
     expect(page).to have_content(park.location)
     expect(page).to have_content(park.rating)
