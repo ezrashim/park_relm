@@ -1,17 +1,25 @@
-<h1>Parks</h1>
+<% if params[:search].present? || params[:search] == "" %>
+  <h1>Search Results!</h1>
+<% else %>
+  <h1>Parks</h1>
+<% end %>
+
+<% if @parks.none? || params[:search] == "" %>
+  <h5>No results found!</h5>
+<% end %>
 
 <% if user_signed_in? %>
   <%= link_to "New Park", new_park_path %>
 <% end %>
 
 <ul>
-    <% @parks.each do |park| %>
-  <li>
+  <% @parks.each do |park| %>
+    <li>
       <%= link_to park.title, park_path(park) %>
       <%= park.location %>
       <%= park.reviews.average(:rating) %>
-  </li>
-    <% end %>
+    </li>
+  <% end %>
 </ul>
 
 <%= paginate @parks %>

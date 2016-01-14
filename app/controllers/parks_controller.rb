@@ -3,7 +3,14 @@ class ParksController < ApplicationController
   before_action :park, only: [:show, :edit, :update, :destroy]
 
   def index
-    @parks = Park.order(rating: :desc).page params[:page]
+    if params[:search] == ""
+      parks = Park.none
+    elsif params[:search]
+      parks = Park.where("title ILIKE ?", "%#{params[:search]}%")
+    else
+      parks = Park.all
+    end
+    @parks = parks.order(rating: :desc).page params[:page]
   end
 
   def show
