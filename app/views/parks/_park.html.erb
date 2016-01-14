@@ -16,7 +16,8 @@
       </div>
       <div class="index-rating small-2 column" data-equalizer-watch>
         <p>
-          <%= park.rating %>8.7
+          <%= "N/A" if park.reviews.nil? %>
+          <%= park.reviews.average(:rating) %>
         </p>
       </div>
     </li>

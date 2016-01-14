@@ -12,11 +12,13 @@
   <h5>No results found!</h5>
 <% end %>
 
+<% if user_signed_in? %>
 <div class="row text-center">
   <div class="small-centered small-2 columns button tiny">
     <%= link_to "New Park", new_park_path, class: "new" %>
   </div>
 </div>
+<% end %>
 
 <ul class="small-10 small-centered column">
   <%= render @parks %>

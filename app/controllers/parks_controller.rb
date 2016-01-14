@@ -15,6 +15,12 @@ class ParksController < ApplicationController
 
   def show
     @review = Review.new
+    @rating = @park.reviews.average(:rating)
+    if @rating.nil?
+      @rating = "N/A"
+    else
+      @rating = @rating.round(1)
+    end
   end
 
   def new
