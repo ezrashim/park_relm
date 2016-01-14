@@ -1,26 +1,60 @@
 <% if params[:search].present? || params[:search] == "" %>
-  <h1>Search Results!</h1>
+  <div class="text-center">
+    <h1>Search Results!</h1>
+  </div>
 <% else %>
-  <h1>Parks</h1>
+  <div class="text-center">
+    <h1>PARKS</h1>
+  </div>
 <% end %>
 
 <% if @parks.none? || params[:search] == "" %>
   <h5>No results found!</h5>
 <% end %>
 
+<div class="row text-center">
+  <div class="small-centered small-2 columns button tiny">
+    <%= link_to "New Park", new_park_path, class: "new" %>
+  </div>
+</div>
+
 <ul class="small-10 small-centered column">
   <% @parks.each do |park| %>
     <div class="park-index-list-item">
-      <li class="park-head">
-        <%= link_to park.title, park_path(park) %><br>
-        <%= park.location %>
-        <div class="index-rating">
-          <%= park.rating %>8.7
-        </div>
-      </li>
+      <div class="row park-head" data-equalizer>
+        <li>
+          <div class="park-info small-3 column" data-equalizer-watch>
+            <p>
+              <%= link_to park.title, park_path(park) %><br>
+              <%= park.location %>
+            </p>
+          </div>
+          <div class="park-icons small-7 column" data-equalizer-watch>
+            <% if park.bathroom %>
+            <%= image_tag("/images/bathroom.png", size: "40") %>
+            <% end %>
+            <% if park.picnic %>
+            <%= image_tag("/images/picnic.png", size: "40") %>
+            <% end %>
+            <% if park.pets %>
+            <%= image_tag("/images/pet.png", size: "40") %>
+            <% end %>
+            <% if park.basketball %>
+            <%= image_tag("/images/basketball.png", size: "40") %>
+            <% end %>
+            <% if park.baseball %>
+            <%= image_tag("/images/baseball.png", size: "40") %>
+            <% end %>
+          </div>
+          <div class="index-rating small-2 column" data-equalizer-watch>
+            <p>
+              <%= park.rating %>8.7
+            </p>
+          </div>
+        </li>
+      </div>
     </div>
   <% end %>
 </ul>
 
 <%= paginate @parks %>
-<%= link_to "New Park", new_park_path %>
