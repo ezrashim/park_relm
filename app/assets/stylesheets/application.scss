@@ -1,8 +1,9 @@
 @import "colors";
 @import "foundation_and_overrides";
-@import url(https://fonts.googleapis.com/css?family=PT+Mono);
+@import url(https://fonts.googleapis.com/css?family=Mako);
+@import url(https://fonts.googleapis.com/css?family=Lora);
 
-$font-stack: "PT Mono";
+$font-stack: 'Mako', sans-serif;
 
 //colors
 // $primary-color :
@@ -10,31 +11,82 @@ $font-stack: "PT Mono";
 // $primary-brand-color
 // $secondary-brand-color
 
+h1, h2, h3, h4, h5 {
+  font-family: 'Lora', serif;
+}
+
 $primary-background-color: $pastel-orange; //  pastel-orange
 $secondary-background-color: $light-green; // light-green
 // in overrides
-// $primary-color: #F35F55; //  pastel-red
-// $secondary-color: #335650; //dark-green
+$primary-color: #f35f55; //  pastel-red
+$secondary-color: #335650; //dark-green
 
 // Styles
 body {
-
+  background-color: $smoke;
   font-family: $font-stack;
   font-weight: normal;
 }
 
+a:hover, a:focus {
+  color: $white;
+}
+
+.park-index-list-item {
+  background-color: $light-green;
+  list-style-type: none;
+  margin-bottom: 5px;
+  padding: 20px 30px;
+}
+
+.index-details {
+  color: $steel;
+  float: left;
+  font-size: 100%;
+  line-height: 2;
+}
+
+.index-rating p {
+  color: $steel;
+  float: center;
+  font-size: 300%;
+  line-height: 0.6;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.park-info p {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.park-icons img {
+  margin-right: 10px;
+  opacity: 0.6;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.new {
+  color: $white;
+}
+
 .button {
-  background-color: $primary-color;
+  background-color: $pastel-orange;
 }
 
 .button.alert {
-  background-color: $primary-color;
+  background-color: $pastel-orange;
 }
 
 .has-form {
+
   position: absolute;
   top: 0;
-  left: 6rem; // adjust distance from left here
+  left: 8rem; // adjust distance from left here
   min-width: 14rem; // adjust width here
 
   @media only screen and (max-width: 40em) {
@@ -61,7 +113,7 @@ body {
   height: 50vh;
   overflow: hidden;
   h1 {
-    color: #fff;
+    color: $white;
     text-align: center;
     @include vertical-align;
   }
@@ -69,17 +121,18 @@ body {
 
 .footer {
   background-color:  $secondary-color;
-  text-align: center;
+  font-family: $font-stack;
   font-size: 1.2rem;
   padding: 2rem;
+  text-align: center;
   p {
     &.slogan {
-      color: #8d9093;
+      color: $jumbo;
       font-size: 1.8rem;
       margin: 0 0 1rem;
     }
     &.copywrite {
-      color: #8f9296;
+      color: $jumbo;
       font-size: 0.875rem;
       margin: 0;
     }
@@ -87,7 +140,7 @@ body {
   .links a {
     list-style: none;
     font-weight: bold;
-    color: #ffffff;
+    color: $white;
     padding: 3rem 0 2rem;
     margin: 0;
     &::after {

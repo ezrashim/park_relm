@@ -1,6 +1,6 @@
 <h1><%= @park.title%></h1>
   <%= @park.location %>
-  <%= @park.rating %>
+  <%= @rating %>
 
 <ul>
   <% if @park.bathroom%>
@@ -30,14 +30,17 @@
   <%end%>
 </ul>
 
+<% if user_signed_in? %>
+  <div>
+    <%= link_to 'Update', edit_park_path(@park) %>
+  </div>
+<% end %>
 
-<div>
-  <%= link_to 'Update', edit_park_path(@park) %>
-  <% if current_user.present? && current_user.admin? %>
-  <%= link_to 'Delete', park_path(@park), method: "delete" %>
-  <% end %>
-</div>
-
+<% if current_user.present? && current_user.admin? %>
+  <div>
+    <%= link_to 'Delete!', park_path(@park), method: "delete" %>
+  </div>
+<% end %>
 
 <ul>
   <% @park.reviews.each do |review|%>
@@ -85,14 +88,13 @@
             </div>
             <hr>
           </li>
-
       <% end %>
     <% end %>
-
 </ul>
 
+<% if user_signed_in? %>
+<h3>Add a Review:</h3>
 <div>
-
-
 <%= render "reviews/form" %>
 </div>
+<% end %>
