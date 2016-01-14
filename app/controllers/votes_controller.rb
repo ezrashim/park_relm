@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+  before_action :authenticate_user!
   before_action :review, only: [:create, :update]
   before_action :park, only: [:create, :update]
 

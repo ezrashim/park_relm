@@ -8,7 +8,7 @@ feature 'when user goes to park show page, park reviews are listed', %{
   # ACCEPTANCE CRITERIA
   # * If I go to a park's show page, I can view all of its reviews
 
-  scenario 'user views reviews on park show page' do
+  scenario 'user views reviews on park show page'do
     review = create(:review)
     park = review.park
 
