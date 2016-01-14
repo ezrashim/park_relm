@@ -29,7 +29,7 @@ body {
 }
 
 a:hover, a:focus {
-  color: white;
+  color: $white;
 }
 
 .park-index-list-item {
@@ -71,7 +71,7 @@ a:hover, a:focus {
 }
 
 .new {
-  color: white;
+  color: $white;
 }
 
 .button {
@@ -113,7 +113,7 @@ a:hover, a:focus {
   height: 50vh;
   overflow: hidden;
   h1 {
-    color: #fff;
+    color: $white;
     text-align: center;
     @include vertical-align;
   }
@@ -127,12 +127,12 @@ a:hover, a:focus {
   text-align: center;
   p {
     &.slogan {
-      color: #8d9093;
+      color: $jumbo;
       font-size: 1.8rem;
       margin: 0 0 1rem;
     }
     &.copywrite {
-      color: #8f9296;
+      color: $jumbo;
       font-size: 0.875rem;
       margin: 0;
     }
@@ -140,7 +140,7 @@ a:hover, a:focus {
   .links a {
     list-style: none;
     font-weight: bold;
-    color: #ffffff;
+    color: $white;
     padding: 3rem 0 2rem;
     margin: 0;
     &::after {
