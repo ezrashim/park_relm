@@ -1,0 +1,24 @@
+<div class="park-index-list-item">
+  <div class="row park-head" data-equalizer>
+    <li>
+      <div class="park-info small-3 column" data-equalizer-watch>
+        <p>
+          <%= link_to park.title, park_path(park) %><br>
+          <%= park.location %>
+        </p>
+      </div>
+      <div class="park-icons small-7 column" data-equalizer-watch>
+        <%= image_tag("/images/bathroom.png", size:"40") if park.bathroom %>
+        <%= image_tag("/images/picnic.png", size:"40") if park.picnic %>
+        <%= image_tag("/images/pet.png", size:"40") if park.pets %>
+        <%= image_tag("/images/basketball.png", size:"40") if park.basketball %>
+        <%= image_tag("/images/baseball.png", size:"40") if park.baseball %>
+      </div>
+      <div class="index-rating small-2 column" data-equalizer-watch>
+        <p>
+          <%= park.rating %>8.7
+        </p>
+      </div>
+    </li>
+  </div>
+</div>

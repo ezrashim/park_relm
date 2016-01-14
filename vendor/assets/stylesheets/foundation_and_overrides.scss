@@ -1,8 +1,10 @@
 // Foundation by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source
-@import url(https://fonts.googleapis.com/css?family=PT+Mono);
+@import url(https://fonts.googleapis.com/css?family=Mako);
+@import url(https://fonts.googleapis.com/css?family=Lora);
 //
+$font-stack: 'Mako', sans-serif;
 
 // Table of Contents
 // Foundation Settings
@@ -129,7 +131,7 @@ $secondary-color: #335650; //dark-green
 // We use these to control various global styles
 // $body-bg: $white;
 // $body-font-color: $jet;
-$body-font-family: 'PT Mono',;
+$body-font-family: $font-stack;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 
@@ -453,10 +455,10 @@ $body-font-family: 'PT Mono',;
 // $button-margin-bottom: rem-calc(20);
 
 // We use these to control button text styles.
-// $button-font-family: $body-font-family;
+$button-font-family: 'Lora', serif;
 // $button-font-color: $white;
 // $button-font-color-alt: $oil;
-// $button-font-tny: rem-calc(11);
+$button-font-tny: rem-calc(16);
 // $button-font-sml: rem-calc(13);
 // $button-font-med: rem-calc(16);
 // $button-font-lrg: rem-calc(20);
@@ -469,7 +471,7 @@ $body-font-family: 'PT Mono',;
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+$button-bg-color: $light-green;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -1176,7 +1178,7 @@ $body-font-family: 'PT Mono',;
 // $side-nav-list-margin: rem-calc(0 0 7 0);
 
 // We use these to control link styles.
-// $side-nav-link-color: $primary-color;
+// $side-nav-link-color: $secondary-color;
 // $side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: 30%);
 // $side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 30%);
 // $side-nav-link-bg-hover: hsla(0, 0, 0, .025);

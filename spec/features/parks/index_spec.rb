@@ -11,7 +11,7 @@ feature "users can view parks" do
     parks = FactoryGirl.create_list(:park_with_reviews, 2)
     visit root_path
 
-    expect(page).to have_content "Parks"
+    expect(page).to have_content "PARKS"
 
     parks.each do |park|
       expect(page).to have_content(park.title)
