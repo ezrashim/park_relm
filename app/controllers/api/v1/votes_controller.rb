@@ -60,7 +60,7 @@ class Api::V1::VotesController < ActionController::Base
       return
     end
 
-    review.save
+    @review.save
     # binding.pry
 
     if @vote.persisted?
