@@ -3,31 +3,26 @@
   <%= @park.rating %>
 
 <ul>
-  <% if @park.bathroom%>
-    <li>
-      Bathrooms available
-    </li>
-    <%end%>
-  <% if @park.picnic%>
-    <li>
-      Picnic facilities available
-    </li>
-    <%end%>
-  <% if @park.pets%>
-    <li>
-      Pets allowed
-    </li>
-  <%end%>
-  <% if @park.basketball%>
-    <li>
-      basketball courts available
-    </li>
-  <%end%>
-  <% if @park.baseball%>
-    <li>
-      Baseball field available
-    </li>
-  <%end%>
+  <li>
+    <%= image_tag("/images/bathroom.png", size:"40") if @park.bathroom %>
+    <%= "Bathrooms Available" if @park.bathroom %>
+  </li>
+  <li>
+    <%= image_tag("/images/picnic.png", size:"40") if @park.picnic %>
+    <%= "Picnic Facilities Available" if @park.picnic %>
+  </li>
+  <li>
+    <%= image_tag("/images/pet.png", size:"40") if @park.pets %>
+    <%= "Pets Allowed" if @park.pets %>
+  </li>
+  <li>
+    <%= image_tag("/images/basketball.png", size:"40") if @park.basketball %>
+    <%= "Basketball Courts Available" if @park.basketball %>
+  </li>
+  <li>
+    <%= image_tag("/images/baseball.png", size:"40") if @park.baseball %>
+    <%= "Baseball Field Available" if @park.baseball %>
+  </li>
 </ul>
 
 
