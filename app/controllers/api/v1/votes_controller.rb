@@ -40,7 +40,7 @@ class Api::V1::VotesController < ActionController::Base
     @park = Park.find(params[:vote][:park_id])
 
     @vote = Vote.where(user: @user, review: @review).first
-    # binding.pry
+
     if @vote.vote == 0 && params[:vote][:vote] == "up"
       @vote.update(vote: 1)
       @review.increment(:vote_count).save
