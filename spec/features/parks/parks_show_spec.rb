@@ -9,7 +9,7 @@ feature "authenticated users can view parks" do
     parks = create_list(:park_with_reviews, 3)
     visit root_path
 
-    expect(page).to have_content "Parks"
+    expect(page).to have_content "PARKS"
 
     parks.each do |park|
       visit park_path(park)
@@ -37,7 +37,7 @@ feature "authenticated users can view parks" do
 
     visit root_path
 
-    expect(page).to have_content "Parks"
+    expect(page).to have_content "PARKS"
 
     visit park_path(park)
     expect(page).to have_content(park.title)

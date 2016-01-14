@@ -1,7 +1,11 @@
 <% if params[:search].present? || params[:search] == "" %>
-  <h1>Search Results!</h1>
+  <div class="text-center">
+    <h1>Search Results!</h1>
+  </div>
 <% else %>
-  <h1>Parks</h1>
+  <div class="text-center">
+    <h1>PARKS</h1>
+  </div>
 <% end %>
 
 <% if @parks.none? || params[:search] == "" %>
@@ -9,17 +13,15 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <%= link_to "New Park", new_park_path %>
+<div class="row text-center">
+  <div class="small-centered small-2 columns button tiny">
+    <%= link_to "New Park", new_park_path, class: "new" %>
+  </div>
+</div>
 <% end %>
 
-<ul>
-  <% @parks.each do |park| %>
-    <li>
-      <%= link_to park.title, park_path(park) %>
-      <%= park.location %>
-      <%= park.reviews.average(:rating) %>
-    </li>
-  <% end %>
+<ul class="small-10 small-centered column">
+  <%= render @parks %>
 </ul>
 
 <%= paginate @parks %>
