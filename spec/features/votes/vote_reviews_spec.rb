@@ -12,7 +12,7 @@ feature 'create vote', %{
   let!(:park) { create(:park_with_reviews)}
   let!(:user) { create(:user) }
 
-  scenario 'user up votes on a review' do
+  scenario 'user up votes on a review', js: true do
     sign_in_as(user)
     click_link (park.title)
 
@@ -22,7 +22,7 @@ feature 'create vote', %{
     expect(page).to_not have_content("You did not vote!")
   end
 
-  scenario 'user down votes on a review' do
+  scenario 'user down votes on a review', js: true do
     sign_in_as(user)
     click_link (park.title)
 
@@ -32,7 +32,7 @@ feature 'create vote', %{
     expect(page).to_not have_content("You did not vote!")
   end
 
-  scenario 'user up votes on a review twice' do
+  scenario 'user up votes on a review twice', js: true do
     sign_in_as(user)
     click_link (park.title)
 
@@ -44,7 +44,7 @@ feature 'create vote', %{
     expect(page).to_not have_content("You have up voted successfully!")
   end
 
-  scenario 'user down votes on a review twice' do
+  scenario 'user down votes on a review twice', js: true do
     sign_in_as(user)
     click_link (park.title)
 
@@ -56,4 +56,15 @@ feature 'create vote', %{
     expect(page).to_not have_content("You have down voted successfully!")
   end
 
+  scenario 'user down votes on a review twice', js: true do
+    sign_in_as(user)
+    click_link (park.title)
+
+    click_button("Up")
+    expect(page).to have_content("vote count: 1")
+    click_button("Down")
+
+    expect(page).to have_content("vote count: 0")
+    expect(page).to have_content("You have successfully updated your rating!")
+  end
 end

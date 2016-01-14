@@ -55,9 +55,9 @@
             <% end %>
 
             <% if flag %>
+
                 <%= button_to 'Up', {controller: "votes", action: "update", park_id: @park.id, review_id: review.id, vote: "up"} , method: :patch  %>
                 <div>
-
                   vote count: <%= review.vote_count%>
                 </div>
                 <%= button_to 'Down', {controller: "votes", action: "update", park_id: @park.id, review_id: review.id, vote: "down"} , method: :patch %>

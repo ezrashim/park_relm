@@ -25,6 +25,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'shoulda-matchers', '~> 3.0.1'
   gem "dotenv-rails"
+  gem 'teaspoon-jasmine'
 end
 
 group :development do
@@ -34,6 +35,8 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 gem 'rails_12factor', group: :production
