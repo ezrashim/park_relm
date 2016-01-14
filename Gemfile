@@ -14,6 +14,8 @@ gem 'devise'
 gem 'kaminari'
 gem "carrierwave"
 gem "fog"
+gem 'dotenv-rails'
+
 
 group :development, :test do
   gem 'byebug'
@@ -25,6 +27,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem "dotenv-rails"
+  gem "mailcatcher"
 end
 
 group :development do
