@@ -1,0 +1,8 @@
+Hello <%= @review.park.user.first_name %>
+
+<%= @review.user.first_name %> has left a new review for your park <%= @review.park.title %>.
+
+You can checkout the review <%= link_to 'here', park_url(@review.park) %>
+
+Gotta catch 'em all!
+ - Park Review Moderator

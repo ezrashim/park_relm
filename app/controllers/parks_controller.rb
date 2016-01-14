@@ -29,6 +29,8 @@ class ParksController < ApplicationController
 
   def create
     @park = Park.new(park_params)
+    @park.user_id = current_user.id
+
     if @park.save
       flash[:success] = "Park successfully created!"
       redirect_to root_path
@@ -76,7 +78,8 @@ class ParksController < ApplicationController
       :picnic,
       :pets,
       :basketball,
-      :baseball
+      :baseball,
+      :user_id
     )
   end
 end

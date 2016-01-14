@@ -14,6 +14,8 @@ gem 'devise'
 gem 'kaminari'
 gem "carrierwave"
 gem "fog"
+gem 'dotenv-rails'
+
 
 group :development, :test do
   gem 'byebug'
@@ -26,6 +28,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'shoulda-matchers', '~> 3.0.1'
   gem "dotenv-rails"
+  gem "mailcatcher"
   gem 'teaspoon-jasmine'
 end
 
