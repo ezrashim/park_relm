@@ -16,8 +16,6 @@ $(document).ready(function() {
       }
     };
 
-      // debugger;
-
     var request = $.ajax({
       method: "PATCH",
       url: "/api/v1/votes/" + $(this).data('voteId').id,
@@ -36,14 +34,10 @@ $(document).ready(function() {
     });
 
     request.fail(function(response) {
-      // debugger;
       flash_string = response["responseJSON"]["flash"];
       flash_message.text(flash_string);
     });
   });
-
-
-
 
   $(document).on('click', '#update-down', function(event){
     event.preventDefault();
@@ -62,7 +56,6 @@ $(document).ready(function() {
       }
     };
 
-    // debugger;
     var request = $.ajax({
       method: "PATCH",
       url: "/api/v1/votes/" + $(this).data('voteId').id,
@@ -78,11 +71,9 @@ $(document).ready(function() {
       vote_count.text(string);
       flash_string = response["flash"];
       flash_message.text(flash_string);
-
     });
 
     request.fail(function(response) {
-      // debugger;
       flash_string = response["responseJSON"]["flash"];
       flash_message.text(flash_string);
     });
@@ -91,7 +82,6 @@ $(document).ready(function() {
 
   $(document).on('click', '.create-up', function(event){
     event.preventDefault();
-    // debugger;
     var vote_count_tag = '.vote-count-' + $(this).data("reviewId");
     var vote_count = $(vote_count_tag);
     var vote_count_arr = vote_count.text().split(": ");
@@ -112,7 +102,6 @@ $(document).ready(function() {
       data: content,
       dataType: "json"
     });
-
 
     var flash_message = $('#flash-div');
     var buttup = $('#create-up-' + $(this).data("reviewId"));
@@ -137,8 +126,6 @@ $(document).ready(function() {
       flash_message.text(flash_string);
     });
   });
-
-
 
   $(document).on('click', '.create-down', function(event){
     event.preventDefault();
@@ -176,7 +163,6 @@ $(document).ready(function() {
       buttup.attr("id", "update-up");
       buttup.attr("class", "");
       buttup.attr("data-vote-id", response["vote_id"]);
-
       buttdown.attr("id", "update-down");
       buttdown.attr("class", "");
       buttdown.attr("data-vote-id", response["vote_id"]);
