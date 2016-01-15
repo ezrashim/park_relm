@@ -1,100 +1,53 @@
-<h1><%= @park.title%></h1>
-  <%= @park.location %>
-  <%= @rating %>
+<div class="row text-center">
 
-<ul>
-  <% if @park.bathroom%>
-    <li>
-      Bathrooms available
-    </li>
-    <%end%>
-  <% if @park.picnic%>
-    <li>
-      Picnic facilities available
-    </li>
-    <%end%>
-  <% if @park.pets%>
-    <li>
-      Pets allowed
-    </li>
-  <%end%>
-  <% if @park.basketball%>
-    <li>
-      basketball courts available
-    </li>
-  <%end%>
-  <% if @park.baseball%>
-    <li>
-      Baseball field available
-    </li>
-  <%end%>
-</ul>
+  <h1><%= @park.title%></h1>
+  <h3 class="park-show-location"><%= @park.location %></h3>
+  <h2 class="park-show-rating">Rating: <%= @park.rating %>8.7</h2>
 
-<% if user_signed_in? %>
-  <div>
-    <%= link_to 'Update', edit_park_path(@park) %>
+  <div class="row text-center">
+    <ul class="no-bullet text-center small-10 small-centered columns">
+      <li class="show-icons">
+        <%= image_tag("/images/bathroom.png", size:"40") if @park.bathroom %>
+        <%= "Bathrooms Available" if @park.bathroom %>
+      </li>
+      <li class="show-icons">
+        <%= image_tag("/images/picnic.png", size:"40") if @park.picnic %>
+        <%= "Picnic Facilities Available" if @park.picnic %>
+      </li>
+      <li class="show-icons">
+        <%= image_tag("/images/pet.png", size:"40") if @park.pets %>
+        <%= "Pets Allowed" if @park.pets %>
+      </li>
+      <li class="show-icons">
+        <%= image_tag("/images/basketball.png", size:"40") if @park.basketball %>
+        <%= "Basketball Courts Available" if @park.basketball %>
+      </li>
+      <li class="show-icons">
+        <%= image_tag("/images/baseball.png", size:"40") if @park.baseball %>
+        <%= "Baseball Field Available" if @park.baseball %>
+      </li>
+    </ul>
   </div>
-<% end %>
 
-<% if current_user.present? && current_user.admin? %>
-  <div>
-    <%= link_to 'Delete!', park_path(@park), method: "delete" %>
-  </div>
-<% end %>
-
-<ul>
-  <% @park.reviews.each do |review|%>
-    <% if !review.id.nil?%>
-          <li class="inline-list">
-            <%= review.title%>
-            <% flag = false %>
-
-            <% if !current_user.nil?%>
-              <% if !review.votes.nil? && !current_user.nil? %>
-                <% review.votes.each do |vote|%>
-                  <% if vote.user_id == current_user.id %>
-                    <% flag = true %>
-                  <% end %>
-                <% end %>
-              <% end %>
-
-
-              <% if flag %>
-                <div class="update-button-<%= review.id %>">
-
-                  <%= button_to 'Up', {controller: "votes", action: "update", park_id: @park.id, review_id: review.id, vote: "up"} , method: :patch, id: "update-up", data: {park_id: @park.id, review_id: review.id, user_id: current_user.id, vote_id: review.votes.where(user: current_user).first} %>
-                  <div class="vote-count-<%= review.id %>">
-                    vote count: <%= review.vote_count%>
-                  </div>
-                  <%= button_to 'Down', {controller: "votes", action: "update", park_id: @park.id, review_id: review.id, vote: "down"} , method: :patch , id: "update-down", data: {park_id: @park.id, review_id: review.id, user_id: current_user.id, vote_id: review.votes.where(user: current_user).first}%>
-                </div>
-              <% else %>
-                <div class="create-button-<%= review.id %>">
-
-                  <%= button_to 'Up', {controller: "votes", action: "create", park_id: @park.id, review_id: review.id, vote: "up"} , method: :post, class: "create-up",  id: "create-up-#{review.id}", data: { park_id: @park.id, review_id: review.id, user_id: current_user.id , vote_id: review.votes.where(user: current_user).first} %>
-                  <div class="vote-count-<%= review.id %>">
-                    vote count: <%= review.vote_count%>
-                  </div>
-                  <%= button_to 'Down', {controller: "votes", action: "create", park_id: @park.id, review_id: review.id, vote: "down"} , method: :post, class: "create-down", id: "create-down-#{review.id}", data: {park_id: @park.id, review_id: review.id, user_id: current_user.id, vote_id: review.votes.where(user: current_user).first }%>
-                </div>
-              <% end %>
-            <% end %>
-            <div>
-                <%= link_to 'Edit', edit_park_review_path(@park, review)%>
-                <%= link_to 'Delete Review', park_review_path(@park, review), method: :delete%>
-            </div>
-            <div>
-              <%= review.body %>
-            </div>
-            <hr>
-          </li>
-      <% end %>
-    <% end %>
-</ul>
-
-<% if user_signed_in? %>
-<h3>Add a Review:</h3>
-<div>
-<%= render "reviews/form" %>
+  <% if user_signed_in? %>
+    <div class="button tiny update-butt">
+      <%= link_to 'Update Park Info', edit_park_path(@park) %>
+    </div>
+  <% end %>
 </div>
+
+<div>
+  <% if current_user.present? && current_user.admin? %>
+    <%= link_to 'Delete!', park_path(@park), method: "delete" %>
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <ul class="small-10 small-centered column">
+    <%= render "reviews/review" %>
+  </ul>
+
+  <div class="review-title small-8 small-centered column text-center">
+    <%= render "reviews/form" %>
+  </div>
 <% end %>

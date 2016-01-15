@@ -10,6 +10,8 @@ feature 'when user goes to park show page, park reviews are listed', %{
 
   scenario 'user views reviews on park show page' do
     park = create(:park_with_reviews)
+    user = create(:user)
+    sign_in_as(user)
 
     visit root_path
     click_link (park.title)

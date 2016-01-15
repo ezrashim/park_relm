@@ -1,20 +1,21 @@
+<h3 class="review-title">Create Review:</h3>
 <%= form_for [@park, @review] do |f| %>
-  <ul>
+  <ul class="review-form-list">
     <%=f.label :title, "Title" %>
     <%= f.text_field :title %>
   </ul>
 
-  <ul>
+  <ul class="review-form-list">
     <%= f.label :rating, "Rating" %>
     <%= f.select(:rating, options_for_select([1, 2, 3, 4 ,5 ,6 ,7 ,8, 9, 10])) %>
   </ul>
 
-  <ul>
+  <ul class="review-form-list">
     <%=f.label :body, "Body" %>
     <%= f.text_field :body %>
   </ul>
 
-  <ul>
-    <%= f.submit %>
+  <ul class="review-form-list">
+    <%= f.submit class: "button tiny"%>
   </ul>
 <% end %>

@@ -1,0 +1,53 @@
+<div class="park-index-list-item">
+  <div class="row" data-equalizer>
+    <% @park.reviews.each do |review|%>
+      <% if !review.id.nil?%>
+        <li>
+          <div class="park-info small-4 column" data-equalizer-watch>
+            <p>
+              <%= review.title %><br>
+              Rating: <%= review.rating %><br>
+              <%= link_to 'Edit / ', edit_park_review_path(@park, review)%>
+              <%= link_to 'Delete Review', park_review_path(@park, review), method: :delete%>
+            </p>
+          </div>
+          <div class="park-icons small-8 column" data-equalizer-watch>
+            <p><%= review.body %></p>
+          </div>
+          <div>
+            <% flag = false %>
+            <% if !current_user.nil?%>
+              <% if !review.votes.nil? && !current_user.nil? %>
+                <% review.votes.each do |vote|%>
+                  <% if vote.user_id == current_user.id %>
+                    <% flag = true %>
+                  <% end %>
+                <% end %>
+              <% end %>
+
+              <% if flag %>
+                <div class="update-button-<%= review.id %>">
+
+                  <%= button_to 'Up', {controller: "votes", action: "update", park_id: @park.id, review_id: review.id, vote: "up"} , method: :patch, id: "update-up", data: {park_id: @park.id, review_id: review.id, user_id: current_user.id, vote_id: review.votes.where(user: current_user).first} %>
+                  <div class="vote-count-<%= review.id %>">
+                    vote count: <%= review.vote_count%>
+                  </div>
+                  <%= button_to 'Down', {controller: "votes", action: "update", park_id: @park.id, review_id: review.id, vote: "down"} , method: :patch , id: "update-down", data: {park_id: @park.id, review_id: review.id, user_id: current_user.id, vote_id: review.votes.where(user: current_user).first}%>
+                </div>
+              <% else %>
+                <div class="create-button-<%= review.id %>">
+
+                  <%= button_to 'Up', {controller: "votes", action: "create", park_id: @park.id, review_id: review.id, vote: "up"} , method: :post, class: "create-up",  id: "create-up-#{review.id}", data: { park_id: @park.id, review_id: review.id, user_id: current_user.id , vote_id: review.votes.where(user: current_user).first} %>
+                  <div class="vote-count-<%= review.id %>">
+                    vote count: <%= review.vote_count%>
+                  </div>
+                  <%= button_to 'Down', {controller: "votes", action: "create", park_id: @park.id, review_id: review.id, vote: "down"} , method: :post, class: "create-down", id: "create-down-#{review.id}", data: {park_id: @park.id, review_id: review.id, user_id: current_user.id, vote_id: review.votes.where(user: current_user).first }%>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </div>
+</div>
