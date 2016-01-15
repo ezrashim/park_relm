@@ -13,12 +13,14 @@ $font-stack: 'Mako', sans-serif;
 
 h1, h2, h3, h4, h5 {
   font-family: 'Lora', serif;
+  margin-top: 0.5rem;
+  margin-bottom: 0.0rem;
 }
 
 $primary-background-color: $pastel-orange; //  pastel-orange
 $secondary-background-color: $light-green; // light-green
 // in overrides
-$primary-color: #f35f55; //  pastel-red
+$primary-color: #ffffff; //  pastel-red
 $secondary-color: #335650; //dark-green
 
 // Styles
@@ -28,15 +30,27 @@ body {
   font-weight: normal;
 }
 
-a:hover, a:focus {
+a {
   color: $white;
+}
+
+a:hover, a:focus {
+  color: $dark-green;
+}
+
+.review-form-list {
+  margin: 0;
+}
+
+.review-title {
+  margin-bottom: 1.0rem;
 }
 
 .park-index-list-item {
   background-color: $light-green;
   list-style-type: none;
   margin-bottom: 5px;
-  padding: 20px 30px;
+  padding: 10px 15px;
 }
 
 .index-details {
@@ -60,6 +74,8 @@ a:hover, a:focus {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  border-right: 2px solid;
+  border-color: $white;
 }
 
 .park-icons img {
@@ -70,8 +86,43 @@ a:hover, a:focus {
   transform: translateY(-50%);
 }
 
+.park-icons p {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.park-show-location {
+  margin-top: 0.0rem;
+}
+
+.park-show-rating {
+  margin-bottom: 1.0rem;
+}
+
+.show-icons {
+  margin-bottom: 10px;
+}
+
+.top-bar {
+  height: 3.0rem;
+}
+
 .new {
   color: $white;
+}
+
+.no-bullet {
+  margin-bottom: 0;
+}
+
+.button.small {
+  font-size: 1.2rem;
+  padding: 0.4rem;
+}
+
+.button.tiny {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.6rem;
 }
 
 .button {

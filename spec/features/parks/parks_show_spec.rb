@@ -43,10 +43,10 @@ feature "authenticated users can view parks" do
     expect(page).to have_content(park.title)
     expect(page).to have_content(park.location)
     expect(page).to have_content(park.rating)
-    expect(page).to have_content("Bathrooms available")
-    expect(page).to have_content("Picnic facilities available")
-    expect(page).to have_content("Pets allowed")
-    expect(page).to have_content("basketball courts available")
-    expect(page).to have_content("Baseball field available")
+    expect(page).to have_content("Bathrooms Available")
+    expect(page).to have_content("Picnic Facilities Available")
+    expect(page).to have_content("Pets Allowed")
+    expect(page).to have_content("Basketball Courts Available")
+    expect(page).to have_content("Baseball Field Available")
   end
 end

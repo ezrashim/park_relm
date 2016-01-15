@@ -1,0 +1,21 @@
+<div class="park-index-list-item">
+  <div class="row" data-equalizer>
+    <% @park.reviews.each do |review|%>
+      <% if !review.id.nil?%>
+        <li>
+          <div class="park-info small-4 column" data-equalizer-watch>
+            <p>
+              <%= review.title%><br>
+              Rating: <%= review.rating %><br>
+              <%= link_to 'Edit / ', edit_park_review_path(@park, review)%>
+              <%= link_to 'Delete Review', park_review_path(@park, review), method: :delete%>
+            </p>
+          </div>
+          <div class="park-icons small-8 column" data-equalizer-watch>
+            <p><%= review.body %></p>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,61 +1,50 @@
-<h1><%= @park.title%></h1>
-  <%= @park.location %>
-  <%= @park.rating %>
+<div class="row text-center">
 
-<ul>
-  <li>
-    <%= image_tag("/images/bathroom.png", size:"40") if @park.bathroom %>
-    <%= "Bathrooms Available" if @park.bathroom %>
-  </li>
-  <li>
-    <%= image_tag("/images/picnic.png", size:"40") if @park.picnic %>
-    <%= "Picnic Facilities Available" if @park.picnic %>
-  </li>
-  <li>
-    <%= image_tag("/images/pet.png", size:"40") if @park.pets %>
-    <%= "Pets Allowed" if @park.pets %>
-  </li>
-  <li>
-    <%= image_tag("/images/basketball.png", size:"40") if @park.basketball %>
-    <%= "Basketball Courts Available" if @park.basketball %>
-  </li>
-  <li>
-    <%= image_tag("/images/baseball.png", size:"40") if @park.baseball %>
-    <%= "Baseball Field Available" if @park.baseball %>
-  </li>
-</ul>
+  <h1><%= @park.title%></h1>
+  <h3 class="park-show-location"><%= @park.location %></h3>
+  <h2 class="park-show-rating">Rating: <%= @park.rating %>8.7</h2>
 
+  <div class="row text-center">
+    <ul class="no-bullet text-center small-10 small-centered columns">
+      <li class="show-icons">
+        <%= image_tag("/images/bathroom.png", size:"40") if @park.bathroom %>
+        <%= "Bathrooms Available" if @park.bathroom %>
+      </li>
+      <li class="show-icons">
+        <%= image_tag("/images/picnic.png", size:"40") if @park.picnic %>
+        <%= "Picnic Facilities Available" if @park.picnic %>
+      </li>
+      <li class="show-icons">
+        <%= image_tag("/images/pet.png", size:"40") if @park.pets %>
+        <%= "Pets Allowed" if @park.pets %>
+      </li>
+      <li class="show-icons">
+        <%= image_tag("/images/basketball.png", size:"40") if @park.basketball %>
+        <%= "Basketball Courts Available" if @park.basketball %>
+      </li>
+      <li class="show-icons">
+        <%= image_tag("/images/baseball.png", size:"40") if @park.baseball %>
+        <%= "Baseball Field Available" if @park.baseball %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="button tiny update-butt">
+    <%= link_to 'Update Park Info', edit_park_path(@park) %>
+  </div>
+
+</div>
 
 <div>
-  <%= link_to 'Update', edit_park_path(@park) %>
   <% if current_user.present? && current_user.admin? %>
   <%= link_to 'Delete', park_path(@park), method: "delete" %>
   <% end %>
 </div>
 
-
-<ul>
-  <% @park.reviews.each do |review|%>
-    <% if !review.id.nil?%>
-          <li class="inline-list">
-            <%= review.title%>
-            <div>
-                <%= link_to 'Edit', edit_park_review_path(@park, review)%>
-                <%= link_to 'Delete Review', park_review_path(@park, review), method: :delete%>
-            </div>
-            <div>
-              <%= review.body %>
-            </div>
-            <hr>
-          </li>
-
-    <% end %>
-  <% end %>
-
+<ul class="small-10 small-centered column">
+  <%= render "reviews/review" %>
 </ul>
 
-<div>
-
-
+<div class="review-title small-8 small-centered column text-center">
 <%= render "reviews/form" %>
 </div>
