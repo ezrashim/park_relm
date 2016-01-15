@@ -1,4 +1,5 @@
-<% @park.reviews.each do |review|%>
+<% unless @reviews.nil? %>
+<% @reviews.each do |review|%>
   <% if !review.id.nil?%>
     <div class="park-index-list-item">
       <div class="row" data-equalizer>
@@ -56,4 +57,5 @@
       </div>
     </div>
   <% end %>
+<% end %>
 <% end %>

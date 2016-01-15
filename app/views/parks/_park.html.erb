@@ -16,7 +16,11 @@
       </div>
       <div class="index-rating small-2 column" data-equalizer-watch>
         <p>
-          <%= park.reviews.average(:rating) %>
+          <% unless park.reviews.average(:rating).nil? %>
+          <%= park.reviews.average(:rating).round(1) %>
+          <% else %>
+          <%= "N/A" %>
+          <% end %>
         </p>
       </div>
     </li>
