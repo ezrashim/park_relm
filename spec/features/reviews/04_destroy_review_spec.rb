@@ -15,7 +15,7 @@ feature "review creator can edit review information" do
 
     click_link (park.title)
 
-    click_link("Delete Review")
+    click_link("Delete")
 
     expect(page).to_not have_content(review.title)
     expect(page).to_not have_content(review.body)

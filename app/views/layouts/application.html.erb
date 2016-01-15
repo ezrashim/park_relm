@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Park Perks" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -76,7 +76,7 @@
 
   </section>
 </nav>
-  <div id="flash-div">  
+  <div id="flash-div">
     <% flash.each do |key, value| %>
       <div id='flash-messages'>
         <%= value %>

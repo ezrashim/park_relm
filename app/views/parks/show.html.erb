@@ -2,7 +2,7 @@
 
   <h1><%= @park.title%></h1>
   <h3 class="park-show-location"><%= @park.location %></h3>
-  <h2 class="park-show-rating">Rating: <%= @park.rating %>8.7</h2>
+  <h2 class="park-show-rating">Rating: <%= @park.reviews.average(:rating) %></h2>
 
   <div class="row text-center">
     <ul class="no-bullet text-center small-10 small-centered columns">
@@ -42,11 +42,11 @@
   <% end %>
 </div>
 
-<% if user_signed_in? %>
   <ul class="small-10 small-centered column">
     <%= render "reviews/review" %>
   </ul>
 
+<% if user_signed_in? %>
   <div class="review-title small-8 small-centered column text-center">
     <%= render "reviews/form" %>
   </div>
