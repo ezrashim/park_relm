@@ -76,7 +76,7 @@ For example:
 
 # ER Diagram
 
-![Entity Relationship Diagram](https://drive.google.com/file/d/0B0YuNqlqhv9YNWtydlU1MHNnUUE/view?usp=sharing)
+    https://drive.google.com/file/d/0B0YuNqlqhv9YNWtydlU1MHNnUUE/view?usp=sharing
 
 # Copyright
 
