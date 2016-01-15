@@ -43,9 +43,9 @@
   <% end %>
 </div>
 
-<div>
+<div class="text-center">
   <% if current_user.present? && current_user.admin? %>
-    <%= link_to 'Delete!', park_path(@park), method: "delete" %>
+    <%= link_to 'Delete!', park_path(@park), method: "delete", class: "button tiny update-butt" %>
   <% end %>
 </div>
 
