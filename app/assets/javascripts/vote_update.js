@@ -46,7 +46,6 @@ $(document).ready(function() {
     vote_count_arr = vote_count.text().split(": ");
     var count_string = vote_count_arr[vote_count_arr.length - 1];
     var current_count = parseInt(count_string, 10)
-    debugger;
     var content = {
       vote : {
         review_id : $(this).data("reviewId"),

@@ -1,13 +1,13 @@
 <div class="park-index-list-item">
   <div class="row" data-equalizer>
     <li>
-      <div class="park-info small-3 column" data-equalizer-watch>
+      <div class="park-info small-4 column" data-equalizer-watch>
         <p>
           <%= link_to park.title, park_path(park) %><br>
           <%= park.location %>
         </p>
       </div>
-      <div class="park-icons small-7 column" data-equalizer-watch>
+      <div class="park-icons small-6 column" data-equalizer-watch>
         <%= image_tag("/images/bathroom.png", size:"40") if park.bathroom %>
         <%= image_tag("/images/picnic.png", size:"40") if park.picnic %>
         <%= image_tag("/images/pet.png", size:"40") if park.pets %>
@@ -16,7 +16,6 @@
       </div>
       <div class="index-rating small-2 column" data-equalizer-watch>
         <p>
-          <%= "N/A" if park.reviews.nil? %>
           <%= park.reviews.average(:rating) %>
         </p>
       </div>

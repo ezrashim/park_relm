@@ -78,6 +78,14 @@ a:hover, a:focus {
   border-color: $white;
 }
 
+.review-info p {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right: 2px solid;
+  border-color: $white;
+}
+
 .park-icons img {
   margin-right: 10px;
   opacity: 0.6;
@@ -86,7 +94,7 @@ a:hover, a:focus {
   transform: translateY(-50%);
 }
 
-.park-icons p {
+.review-body p {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
