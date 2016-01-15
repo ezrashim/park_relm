@@ -7,6 +7,6 @@
     <li class="no-bullet"><%= @user.email %></li>
   </ul>
 
-  <div> <%= button_to 'Update', edit_user_registration_path, class: "button tiny" %></div>
+  <div> <%= button_to 'Update', edit_user_registration_path, method: :get, class: "button tiny" %></div>
 
 </div>

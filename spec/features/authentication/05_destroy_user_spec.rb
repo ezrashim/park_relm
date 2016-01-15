@@ -14,7 +14,7 @@ feature 'delete account', %{
     sign_in_as(user)
 
     click_link("My profile")
-    click_link("Update")
+    click_button("Update")
 
     click_button("Cancel my account")
     expect(page).to have_content("Bye! Your account has been successfully cancelled. We hope to see you again soon.")
