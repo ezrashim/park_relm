@@ -9,9 +9,11 @@
             <p>
               <%= review.title %><br>
               Rating: <%= review.rating %><br>
-              <% if current_user == review.user%>
-                <%= link_to 'Edit / ', edit_park_review_path(@park, review)%>
-                <%= link_to 'Delete', park_review_path(@park, review), method: :delete%>
+              <% unless current_user.nil? %>
+                <% if current_user == review.user || current_user.admin? %>
+                  <%= link_to 'Edit / ', edit_park_review_path(@park, review)%>
+                  <%= link_to 'Delete', park_review_path(@park, review), method: :delete%>
+                <% end %>
               <% end %>
             </p>
           </div>
