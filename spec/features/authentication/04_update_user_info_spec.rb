@@ -16,7 +16,7 @@ feature 'update user information', %{
     sign_in_as(user)
 
     click_link "My profile"
-    click_link 'Update'
+    click_button 'Update'
 
     fill_in('First Name', with: 'Barbara')
     fill_in('Last Name', with: 'Lee')

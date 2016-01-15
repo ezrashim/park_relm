@@ -113,10 +113,10 @@ $(document).ready(function() {
       flash_string = response["flash"];
       flash_message.text(flash_string);
       buttup.attr("id", "update-up");
-      buttup.attr("class", "");
+      buttup.attr("class", "button tiny vote");
       buttup.attr("data-vote-id",  response["vote_id"] );
       buttdown.attr("id", "update-down");
-      buttdown.attr("class", "");
+      buttdown.attr("class", "button tiny vote");
       buttdown.attr("data-vote-id",  response["vote_id"]);
     });
 
@@ -160,10 +160,10 @@ $(document).ready(function() {
       flash_string = response["flash"];
       flash_message.text(flash_string);
       buttup.attr("id", "update-up");
-      buttup.attr("class", "");
+      buttup.attr("class", "button tiny vote");
       buttup.attr("data-vote-id", response["vote_id"]);
       buttdown.attr("id", "update-down");
-      buttdown.attr("class", "");
+      buttdown.attr("class", "button tiny vote");
       buttdown.attr("data-vote-id", response["vote_id"]);
     });
 

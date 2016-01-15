@@ -38,6 +38,10 @@ a:hover, a:focus {
   color: $dark-green;
 }
 
+.flash-alert {
+  margin-top: 10px;
+}
+
 .review-form-list {
   margin: 0;
 }
@@ -122,6 +126,7 @@ a:hover, a:focus {
 
 .no-bullet {
   margin-bottom: 0;
+  margin-left: 0;
 }
 
 .button.small {
@@ -132,6 +137,10 @@ a:hover, a:focus {
 .button.tiny {
   font-size: 0.8rem;
   padding: 0.4rem 0.6rem;
+}
+
+.button.tiny.vote {
+  margin: 0;
 }
 
 .button {

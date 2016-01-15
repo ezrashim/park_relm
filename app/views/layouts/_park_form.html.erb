@@ -1,33 +1,32 @@
 <%= form_for @park do |f| %>
-  <ul>
+  <div class="review-form-list">
     <%=f.label :title, "Title"%>
     <%= f.text_field :title %>
-  </ul>
-  <ul>
+  </div>
+  <div class="review-form-list">
     <%=f.label :location, "Location"%>
     <%= f.text_field :location %>
-  </ul>
-  <ul>
-    <%=f.label :bathroom, "Bathroom?"%>
-    <%= f.check_box :bathroom %>
-  </ul>
-  <ul>
-    <%=f.label :picnic, "Picnic Area?"%>
-    <%= f.check_box :picnic %>
-  </ul>
-  <ul>
-    <%=f.label :pets, "Pet Friendly?"%>
-    <%= f.check_box :pets %>
-  </ul>
-  <ul>
-    <%=f.label :basketball, "Basketball Courts?"%>
-    <%= f.check_box :basketball %>
-  </ul>
-  <ul>
-    <%=f.label :baseball, "Baseball Fields?"%>
-    <%= f.check_box :baseball %>
-  </ul>
-  <ul>
-    <%= f.submit %>
-  </ul>
+  </div>
+  <div class="row text-center" data-equalizer>
+    <div class="small-centered columns">
+      <div class="small-2 small-push-1 columns review-form-list no-bullet">
+        <%=f.label :bathroom, "Bathroom?"%><%= f.check_box :bathroom %>
+      </div>
+      <div class="small-2 small-push-1 columns review-form-list no-bullet">
+        <%=f.label :picnic, "Picnic Area?"%><%= f.check_box :picnic %>
+      </div>
+      <div class="small-2 small-push-1 columns review-form-list no-bullet">
+        <%=f.label :pets, "Pets?"%><%= f.check_box :pets %>
+      </div>
+      <div class="small-2 small-push-1 columns review-form-list no-bullet">
+        <%=f.label :basketball, "Basketball?"%><%= f.check_box :basketball %>
+      </div>
+      <div class="small-2 small-push-1 columns review-form-list no-bullet end">
+        <%=f.label :baseball, "Baseball?"%><%= f.check_box :baseball %>
+      </div>
+    </div>
+  </div>
+  <div class="review-form-list no-bullet">
+    <%= f.submit class: "button tiny"%>
+  </div>
   <% end %>
