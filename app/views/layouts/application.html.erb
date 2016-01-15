@@ -43,7 +43,7 @@
             <li><%= link_to "My profile", user_path(current_user) %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
             <% if current_user.admin? %>
-            <li> <%= link_to "Admin Section", '#' %> </li>
+            <li> <%= link_to "Admin", '#' %> </li>
             <% end %>
           </ul>
         <% else %>
