@@ -15,6 +15,8 @@ class ParksController < ApplicationController
 
   def show
     @review = Review.new
+    park_reviews = Review.where(park_id: park)
+    @reviews = park_reviews.order(created_at: :desc).page params[:page]
     @rating = @park.reviews.average(:rating)
     if @rating.nil?
       @rating = "N/A"
