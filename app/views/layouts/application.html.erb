@@ -76,12 +76,13 @@
 
   </section>
 </nav>
-
+  <div id="flash-div">  
     <% flash.each do |key, value| %>
-      <div>
+      <div id='flash-messages'>
         <%= value %>
       </div>
     <% end %>
+  </div>
 
     <div class="row">
     <%= yield %>

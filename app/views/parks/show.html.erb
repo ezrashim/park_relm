@@ -29,22 +29,25 @@
     </ul>
   </div>
 
-  <div class="button tiny update-butt">
-    <%= link_to 'Update Park Info', edit_park_path(@park) %>
-  </div>
-
+  <% if user_signed_in? %>
+    <div class="button tiny update-butt">
+      <%= link_to 'Update Park Info', edit_park_path(@park) %>
+    </div>
+  <% end %>
 </div>
 
 <div>
   <% if current_user.present? && current_user.admin? %>
-  <%= link_to 'Delete', park_path(@park), method: "delete" %>
+    <%= link_to 'Delete!', park_path(@park), method: "delete" %>
   <% end %>
 </div>
 
-<ul class="small-10 small-centered column">
-  <%= render "reviews/review" %>
-</ul>
+<% if user_signed_in? %>
+  <ul class="small-10 small-centered column">
+    <%= render "reviews/review" %>
+  </ul>
 
-<div class="review-title small-8 small-centered column text-center">
-<%= render "reviews/form" %>
-</div>
+  <div class="review-title small-8 small-centered column text-center">
+    <%= render "reviews/form" %>
+  </div>
+<% end %>

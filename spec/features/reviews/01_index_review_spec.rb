@@ -9,12 +9,12 @@ feature 'when user goes to park show page, park reviews are listed', %{
   # * If I go to a park's show page, I can view all of its reviews
 
   scenario 'user views reviews on park show page' do
-    review = create(:review)
-    park = review.park
+    park = create(:park_with_reviews)
+    user = create(:user)
+    sign_in_as(user)
 
     visit root_path
     click_link (park.title)
-
-    expect(page).to have_content(review.title)
+    expect(page).to have_content(park.reviews.first.title)
   end
 end

@@ -14,6 +14,8 @@ gem 'devise'
 gem 'kaminari'
 gem "carrierwave"
 gem "fog"
+gem 'dotenv-rails'
+
 
 group :development, :test do
   gem 'byebug'
@@ -23,8 +25,11 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda'
+  gem 'shoulda-matchers', '~> 3.0.1'
   gem "dotenv-rails"
+  gem "mailcatcher"
+  gem 'teaspoon-jasmine'
 end
 
 group :development do
@@ -34,6 +39,8 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 gem 'rails_12factor', group: :production

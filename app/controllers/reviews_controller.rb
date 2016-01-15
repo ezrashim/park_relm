@@ -4,11 +4,11 @@ class ReviewsController < ApplicationController
 
   def create
     @park = Park.find(params[:park_id])
-
     @review = @park.reviews.new(review_params)
     @review.user = current_user
 
     if @review.save
+      ReviewMailer.new_review(@review).deliver_later
       flash[:success] = "Review successfully created!"
       redirect_to park_path(@park)
     else
@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :body)
+    params.require(:review).permit(:title, :body, :rating)
   end
 
   def review

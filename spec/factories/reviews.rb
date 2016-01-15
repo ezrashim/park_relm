@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :review do
-    sequence(:title) { |n| "park no. #{n}" }
-    sequence(:body) { |n| "body no .#{n}" }
+    sequence(:title) { |n| "Awesome #{n}" }
+    sequence(:body) { |n| "Could be better #{n}" }
     user
     park
   end

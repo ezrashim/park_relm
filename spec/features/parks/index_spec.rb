@@ -16,7 +16,7 @@ feature "users can view parks" do
     parks.each do |park|
       expect(page).to have_content(park.title)
       expect(page).to have_content(park.location)
-      expect(page).to have_content(park.rating)
+      expect(page).to have_content(park.reviews.average(:rating))
     end
   end
 end

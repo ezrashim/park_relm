@@ -5,8 +5,10 @@ require "rails_helper"
 # So that I can correct errors or provide new information
 
 feature "authenticated users can edit park information" do
+  let!(:user) { create(:user) }
   scenario "visitor signs in and views parks and navigated to edits page" do
     park = create_list(:park, 3)
+    sign_in_as(user)
     visit park_path(park.first.id)
     click_link("Update")
 
