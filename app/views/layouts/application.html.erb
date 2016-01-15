@@ -76,10 +76,16 @@
 
   </section>
 </nav>
-  <div id="flash-div">
+  <div id="flash-div" class="text-center flash-alert">
     <% flash.each do |key, value| %>
-      <div id='flash-messages'>
-        <%= value %>
+      <div id='flash-messages' class="alert-box">
+        <% if value.class == Hash %>
+          <% value.each do |val| %>
+            <%= val %><br>
+          <% end %>
+        <% else %>
+          <%= value %>
+        <% end %>
       </div>
     <% end %>
   </div>

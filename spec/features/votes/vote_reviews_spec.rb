@@ -18,7 +18,7 @@ feature 'create vote', %{
 
     click_button("Up")
     expect(page).to have_content("You have up voted successfully!")
-    expect(page).to have_content("vote count: 1")
+    expect(page).to have_content("Vote Count: 1")
   end
 
   scenario 'user down votes on a review' do
@@ -27,7 +27,7 @@ feature 'create vote', %{
 
     click_button("Down")
     expect(page).to have_content("You have down voted successfully!")
-    expect(page).to have_content("vote count: -1")
+    expect(page).to have_content("Vote Count: -1")
   end
 
   scenario 'user up votes on a review twice' do
@@ -38,8 +38,8 @@ feature 'create vote', %{
     click_button("Up")
 
     expect(page).to have_content("You can't vote twice!")
-    expect(page).to have_content("vote count: 1")
-    expect(page).to_not have_content("vote count: 0")
+    expect(page).to have_content("Vote Count: 1")
+    expect(page).to_not have_content("Vote Count: 0")
     expect(page).to_not have_content("You have up voted successfully!")
   end
 
@@ -50,7 +50,7 @@ feature 'create vote', %{
     click_button("Down")
     click_button("Down")
     expect(page).to have_content("You can't vote twice!")
-    expect(page).to have_content("vote count: -1")
+    expect(page).to have_content("Vote Count: -1")
   end
 
   scenario 'user down votes on a review twice' do
@@ -58,10 +58,10 @@ feature 'create vote', %{
     click_link (park.title)
 
     click_button("Up")
-    expect(page).to have_content("vote count: 1")
+    expect(page).to have_content("Vote Count: 1")
     click_button("Down")
 
-    expect(page).to have_content("vote count: 0")
+    expect(page).to have_content("Vote Count: 0")
     expect(page).to have_content("You have successfully updated your rating!")
   end
 end
