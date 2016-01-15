@@ -13,8 +13,8 @@ $font-stack: 'Mako', sans-serif;
 
 h1, h2, h3, h4, h5 {
   font-family: 'Lora', serif;
+  margin-bottom: 0rem;
   margin-top: 0.5rem;
-  margin-bottom: 0.0rem;
 }
 
 $primary-background-color: $pastel-orange; //  pastel-orange
@@ -43,7 +43,7 @@ a:hover, a:focus {
 }
 
 .review-title {
-  margin-bottom: 1.0rem;
+  margin-bottom: 1rem;
 }
 
 .park-index-list-item {
@@ -91,12 +91,13 @@ a:hover, a:focus {
   top: 50%;
   transform: translateY(-50%);
 }
+
 .park-show-location {
-  margin-top: 0.0rem;
+  margin-top: 0rem;
 }
 
 .park-show-rating {
-  margin-bottom: 1.0rem;
+  margin-bottom: 1rem;
 }
 
 .show-icons {
@@ -104,7 +105,7 @@ a:hover, a:focus {
 }
 
 .top-bar {
-  height: 3.0rem;
+  height: 3rem;
 }
 
 .new {
