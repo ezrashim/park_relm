@@ -102,12 +102,4 @@ class ReviewSeeder
       review.save!
     end
   end
-
-#   users.each do |user_params|
-#     first_name = user_params[:first_name]
-#     user = User.find_or_create_by!(first_name: first_name, last_name: last_name, email: email, role: role, password: password, password_confirmation: password_confirmation, profile_photo: profile_photo)
-#     user.save!
-#   end
 end
-
-# This guy did not mention about the cool perks that you may find around the park - restraunts, bars and parking lot avalibility. Looks like that waw his first time in this park!
