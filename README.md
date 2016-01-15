@@ -12,7 +12,7 @@ ParkPerk is a review website hosted at https://parkperks.herokuapp.com.  The app
     - [Testing](#testing)
     - [Test Development](#test-development)
 - [ER Diagram](#er-diagram)
-- [License](#license)
+- [Copyright](#copyright)
 
 # Features
 
@@ -20,7 +20,7 @@ ParkPerk is a review website hosted at https://parkperks.herokuapp.com.  The app
 - The ability to rate the park and to create comment on it.
 - An email is sent to the creator of a park when a new review is posted about it.
 - The ability to upvote or downvote a review. A user can only upvote or downvote once and can change their vote from up to down. This feature utilizes AJAX so that a complete page reload isn't necessary.
-- The ability to upload a profile photo (developed with Carrierwave). A default photo is used if the user does not upload one.
+- The ability to upload a profile photo (developed with Carrierwave). A default profile photo is used if the user does not upload one.
 - The ability to search for parks.
 - A sign up and authentication system for users (developed with Devise).
 - An admin role. Admins are able to delete comments or items if they are deemed to be inappropriate.  Access to some pages are restricted to the admin role.
@@ -76,7 +76,7 @@ For example:
 
 # ER Diagram
 
-![Entity Relationship Diagram](https://www.dropbox.com/s/lt540p1hs5rg3hc/park_diagrams.pdf?dl=0)
+![Entity Relationship Diagram] (https://drive.google.com/file/d/0B0YuNqlqhv9Yc1A0a1FzX3E0Xzg/view?usp=sharing)
 
 # Copyright
 
