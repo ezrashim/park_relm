@@ -10,9 +10,9 @@ feature "users can view parks" do
   let! (:parks8) { create_list(:park_with_reviews, 5, rating: 8) }
   let! (:parks10) { create_list(:park_with_reviews, 5, rating: 10) }
 
-  scenario "visitor sees the 10 most recently added parks" do
+  scenario "visitor sees the 10 highest rated parks" do
     park_list = parks2 + parks4 + parks6 + parks8 + parks10
-    park_sort = park_list.sort_by { |park| park.rating }
+    park_sort = park_list.sort_by { |park| park.reviews.average(:rating) }
     visit root_path
 
     expect(page).to have_content park_sort.last.title
