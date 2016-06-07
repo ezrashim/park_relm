@@ -15,7 +15,6 @@ class ParksController < ApplicationController
       p.reviews.average(:rating).to_f
     end
     @parks = parks.page params[:page]
-    # @parks = parks.order(rating: :desc).page params[:page]
   end
 
   def show
