@@ -16,7 +16,7 @@ feature 'create vote', %{
     sign_in_as(user)
     click_link (park.title)
 
-    first('.park-index-list-item').click_button('Up')
+    first('.list-item').click_button('Up')
     expect(page).to have_content("You have up voted successfully!")
     expect(page).to have_content("Vote Count: 1")
   end
@@ -25,7 +25,7 @@ feature 'create vote', %{
     sign_in_as(user)
     click_link (park.title)
 
-    first('.park-index-list-item').click_button('Down')
+    first('.list-item').click_button('Down')
     expect(page).to have_content("You have down voted successfully!")
     expect(page).to have_content("Vote Count: -1")
   end
@@ -34,11 +34,11 @@ feature 'create vote', %{
     sign_in_as(user)
     click_link (park.title)
 
-    first('.park-index-list-item').click_button('Up')
-    first('.park-index-list-item').click_button('Up')
+    first('.list-item').click_button('Up')
+    first('.list-item').click_button('Up')
     expect(page).to have_content("You can't vote twice!")
     expect(page).to have_content("Vote Count: 1")
-    expect(first('.park-index-list-item')).to_not have_content("Vote Count: 0")
+    expect(first('.list-item')).to_not have_content("Vote Count: 0")
     expect(page).to_not have_content("You have up voted successfully!")
   end
 
@@ -46,8 +46,8 @@ feature 'create vote', %{
     sign_in_as(user)
     click_link (park.title)
 
-    first('.park-index-list-item').click_button('Down')
-    first('.park-index-list-item').click_button('Down')
+    first('.list-item').click_button('Down')
+    first('.list-item').click_button('Down')
     expect(page).to have_content("You can't vote twice!")
     expect(page).to have_content("Vote Count: -1")
   end
@@ -56,9 +56,9 @@ feature 'create vote', %{
     sign_in_as(user)
     click_link (park.title)
 
-    first('.park-index-list-item').click_button('Up')
+    first('.list-item').click_button('Up')
     expect(page).to have_content("Vote Count: 1")
-    first('.park-index-list-item').click_button('Down')
+    first('.list-item').click_button('Down')
 
     expect(page).to have_content("Vote Count: 0")
     expect(page).to have_content("You have successfully updated your rating!")
