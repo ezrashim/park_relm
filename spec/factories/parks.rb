@@ -14,7 +14,7 @@ FactoryGirl.define do
 
     factory :park_with_reviews do
       after(:create) do |new_park|
-        FactoryGirl.create(:review, park: new_park)
+        FactoryGirl.create_list(:review, 3, park: new_park, rating: rand(11))
       end
     end
   end
