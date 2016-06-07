@@ -10,10 +10,8 @@ class ParksController < ApplicationController
     else
       parks = Park.all
     end
-    parks.sort_by do |p|
-      p.reviews.average(:rating).to_f
-    end
-    @parks = parks.page params[:page]
+    park_sort = parks.sort_by {|park| park.reviews.average(:rating).to_f}.reverse!
+    @parks = Kaminari.paginate_array(park_sort).page(params[:page])
   end
 
   def show
