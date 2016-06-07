@@ -38,6 +38,15 @@ a:hover, a:focus {
   color: $dark-green;
 }
 
+.vid {
+  height: 300px;
+  width: 100%;
+}
+.vid iframe {
+  width: 100%;
+  height: 100%;
+}
+
 .flash-alert {
   margin-top: 10px;
 }
