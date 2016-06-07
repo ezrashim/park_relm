@@ -14,7 +14,6 @@ feature "users can view parks" do
     park_list = parks2 + parks4 + parks6 + parks8 + parks10
     park_sort = park_list.sort_by { |park| park.reviews.average(:rating) }
     visit root_path
-    
     expect(page).to have_content park_sort.last.title
     expect(page).to_not have_content park_sort.first.title
   end
