@@ -10,11 +10,9 @@ class ParksController < ApplicationController
     else
       parks = Park.all
     end
-
     parks.sort_by do |p|
       p.reviews.average(:rating).to_f
     end
-    
     @parks = parks.page params[:page]
   end
 
